@@ -1,0 +1,50 @@
+.movie__list {
+    padding: 0 1.5rem 2rem 1.5rem; /* Reduced padding for smaller screens */
+}
+
+.list__title {
+    font-size: 1.5rem; /* Adjusted font size for better visibility on smaller screens */
+    margin: 1.5rem; /* Reduced margin for smaller screens */
+    text-align: center; /* Center-align for better appearance on small devices */
+}
+
+.list__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* Added gap for spacing between cards */
+}
+
+/* Media Query for Tablets */
+@media (max-width: 768px) {
+    .movie__list {
+        padding: 0 1rem 1.5rem 1rem; /* Further reduced padding for tablets */
+    }
+
+    .list__title {
+        font-size: 1.3rem; /* Slightly smaller font for tablets */
+        margin: 1rem; /* Further reduced margin for tablets */
+    }
+
+    .list__cards {
+        gap: 0.8rem; /* Adjusted spacing between cards for tablets */
+    }
+}
+
+/* Media Query for Mobile Phones */
+@media (max-width: 480px) {
+    .movie__list {
+        padding: 0 0.5rem 1rem 0.5rem; /* Compact padding for mobile phones */
+    }
+
+    .list__title {
+        font-size: 1rem; /* Smaller font for mobile phones */
+        margin: 0.8rem; /* Minimal margin for mobile phones */
+    }
+
+    .list__cards {
+        flex-direction: column; /* Stack cards vertically on very small screens */
+        align-items: center; /* Center-align cards */
+        gap: 0.5rem; /* Reduced spacing between cards for mobile phones */
+    }
+}

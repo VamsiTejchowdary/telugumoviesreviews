@@ -1,0 +1,154 @@
+.movie {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie__intro {
+    width: 100%;
+}
+
+.movie__backdrop {
+    width: 100%;
+    height: 400px; /* Adjusted for smaller screens */
+    object-fit: cover;
+    object-position: 0 35%;
+}
+
+.movie__detail {
+    align-items: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column; /* Stacked layout for smaller screens */
+    position: relative;
+    bottom: 0; /* Removed overlap for smaller screens */
+}
+
+.movie__detailLeft {
+    margin-bottom: 20px;
+}
+
+.movie__poster {
+    width: 200px; /* Reduced size for smaller screens */
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.86) 0px 22px 40px 6px;
+}
+
+.movie__detailRight {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.movie__detailRightTop > div {
+    text-shadow: 0px 0px 5px #000000;
+    margin-bottom: 0.5rem;
+}
+
+.movie__name {
+    font-weight: 600;
+    font-size: 2rem; /* Adjusted font size for smaller screens */
+}
+
+.movie__voteCount {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.movie__genres {
+    margin: 1rem 0;
+}
+
+.movie__genre {
+    padding: 0.4rem;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.movie__detailRightBottom {
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+.synopsisText {
+    font-size: 1.2rem; /* Adjusted font size for smaller screens */
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.movie__links {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stack links for smaller screens */
+    align-items: center;
+    margin-top: 1.5rem;
+    width: 90%;
+}
+
+.movie__heading {
+    font-size: 1.8rem; /* Adjusted font size for smaller screens */
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.movie__Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1.5rem; /* Reduced padding for smaller screens */
+    border-radius: 20px;
+    cursor: pointer;
+    width: 120px;
+    color: black;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.movie__homeButton {
+    background-color: rgb(255, 0, 0);
+}
+
+.movie__imdbButton {
+    background-color: #f3ce13;
+}
+
+.productionCompanyImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px; /* Reduced size for smaller screens */
+    margin: 1rem;
+}
+
+@media (min-width: 768px) {
+    .movie__detail {
+        flex-direction: row; /* Row layout for larger screens */
+        bottom: 225px; /* Restored overlap for larger screens */
+    }
+
+    .movie__detailRight {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .movie__links {
+        flex-direction: row; /* Side-by-side layout for larger screens */
+        justify-content: space-between;
+        width: 75%;
+    }
+
+    .movie__Button {
+        padding: 0.8rem 2rem; /* Restored padding for larger screens */
+        width: 150px;
+        font-size: 1rem;
+    }
+}

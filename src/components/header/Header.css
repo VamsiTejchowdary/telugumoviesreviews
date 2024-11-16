@@ -1,0 +1,196 @@
+/* General Styles */
+.header {
+    margin: 0 2.5rem;
+    padding: 0.5rem 0;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+}
+
+.header__icon {
+    width: 80px;
+    cursor: pointer;
+}
+
+a > span {
+    margin: 0 20px; /* Adjusted for uniform spacing */
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+}
+
+a > span:hover {
+    color: red;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Dropdown Menu (Initially hidden) */
+.menu {
+    display: flex;
+    flex-direction: row; /* Horizontal for desktop */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: auto;
+    text-align: center;
+}
+
+.menu.open {
+    display: flex; /* Show menu when 'open' class is applied */
+}
+
+.menu a {
+    margin: 10px;
+}
+
+.menu a span {
+    font-size: 1rem;
+    color: white;
+}
+
+.menu a span:hover {
+    color: red;
+}
+
+/* Contact Form Styles */
+.contact-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.contact-form {
+    background-color: black; /* Black background for the contact form */
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%; /* Responsive width on mobile */
+    max-width: 500px; /* Limit the width on larger screens */
+    text-align: center;
+    box-sizing: border-box;
+    color: white; /* Ensure text is white on black background */
+}
+
+.contact-form h2 {
+    margin-bottom: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #333; /* Dark background for inputs */
+    color: white; /* White text in inputs */
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+.contact-form .close {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.contact-form .close:hover {
+    background-color: #d32f2f;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* For mobile view, hide the menu and display hamburger */
+    .menu {
+        display: none;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align the menu items */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    .headerLeft {
+        flex: 1;
+    }
+
+    a > span {
+        margin: 10px 0;
+        font-size: 1rem;
+    }
+
+    /* When menu is open, display it vertically */
+    .menu.open {
+        display: flex;
+    }
+
+    /* Contact Form Mobile Adjustments */
+    .contact-form {
+        padding: 1.5rem; /* Adjust padding for mobile */
+        width: 90%; /* Ensure the form fits on smaller screens */
+        max-width: 400px; /* Limit the form width for small screens */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem; /* Adjust font size for mobile */
+    }
+
+    .contact-form button {
+        padding: 8px 16px; /* Adjust button padding for mobile */
+    }
+
+    .contact-form .close {
+        padding: 8px 16px; /* Adjust close button padding */
+    }
+}
