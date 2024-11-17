@@ -1,0 +1,77 @@
+.movie__list {
+    padding: 1.5rem 2rem; /* Standard padding for the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align the content */
+    gap: 1rem; /* Space between the title and the cards */
+}
+
+.list__title {
+    font-size: 1.8rem; /* Prominent font size for the title */
+    font-weight: bold;
+    color: #333; /* Dark gray color for better readability */
+    margin-bottom: 1rem;
+    text-align: center; /* Center-align the title */
+    text-transform: uppercase; /* Ensure the title is in uppercase */
+}
+
+.list__cards {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for cards on smaller screens */
+    justify-content: center; /* Center-align the cards */
+    gap: 1.5rem; /* Space between cards */
+}
+
+/* Style individual cards if needed (overridable by Cards component styles) */
+.card {
+    width: 200px; /* Fixed width for consistency */
+    height: 300px; /* Fixed height for card */
+    border-radius: 8px; /* Slight rounding for a modern look */
+    overflow: hidden; /* Clip any overflowing content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    background-color: #fff; /* White background for contrast */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Responsive Styles */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .movie__list {
+        padding: 1rem; /* Reduced padding for tablets */
+    }
+
+    .list__title {
+        font-size: 1.5rem; /* Slightly smaller title font for tablets */
+    }
+
+    .list__cards {
+        gap: 1rem; /* Adjust gap between cards */
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .movie__list {
+        padding: 0.5rem; /* Compact padding for mobile phones */
+    }
+
+    .list__title {
+        font-size: 1.2rem; /* Smaller font size for mobile screens */
+    }
+
+    .list__cards {
+        flex-direction: column; /* Stack cards vertically */
+        gap: 0.8rem; /* Narrow gap for smaller screens */
+    }
+
+    .card {
+        width: 90%; /* Adjust card width to fit mobile screens */
+        height: auto; /* Allow height to adjust based on content */
+    }
+}

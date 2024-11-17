@@ -1,24 +1,23 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";  // Import useLocation hook
 import "./movie.css";
-import { useParams } from "react-router-dom";
 
 const Movie = () => {
-  const [currentMovieDetail, setMovie] = useState();
-  const { id } = useParams();
+  const location = useLocation();  // Access the location object to get state
+  const { movieDetails } = location.state || {};  // Get movieDetails and rating from state
+  const [currentMovieDetail, setMovie] = useState(movieDetails);
 
-  // Memoize the getData function to prevent unnecessary re-creations
-  const getData = useCallback(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=acaba87d72eba033de2058214994a722`
-    )
-      .then((res) => res.json())
-      .then((data) => setMovie(data));
-  }, [id]); // Include 'id' as a dependency to refetch data when it changes
-
+  // If movieDetails is not available, fetch the movie using the movie id
   useEffect(() => {
-    getData();  // Call the getData function
-    window.scrollTo(0, 0);  // Scroll to top when the component mounts
-  }, [getData]);  // Include 'getData' in the dependency array
+    if (!movieDetails) {
+      const movieId = location.pathname.split("/").pop(); // Extract movie ID from path if state is not passed
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=acaba87d72eba033de2058214994a722`
+      )
+        .then((res) => res.json())
+        .then((data) => setMovie(data));
+    }
+  }, [movieDetails, location.pathname]);
 
   return (
     <div className="movie">
@@ -52,7 +51,7 @@ const Movie = () => {
               {currentMovieDetail ? currentMovieDetail.tagline : ""}
             </div>
             <div className="movie__rating">
-              {currentMovieDetail ? currentMovieDetail.vote_average : ""}{" "}
+            {currentMovieDetail ? currentMovieDetail.vote_average : ""}{" "}
               <i className="fas fa-star" />
               <span className="movie__voteCount">
                 {currentMovieDetail
@@ -71,7 +70,7 @@ const Movie = () => {
             <div className="movie__genres">
               {currentMovieDetail && currentMovieDetail.genres
                 ? currentMovieDetail.genres.map((genre) => (
-                    <span className="movie__genre" id={genre.id} key={genre.id}>
+                    <span className="movie__genre" key={genre.id}>
                       {genre.name}
                     </span>
                   ))
@@ -115,25 +114,6 @@ const Movie = () => {
           </a>
         )}
       </div>
-      {/* <div className="movie__heading">Production companies</div>
-      <div className="movie__production">
-        {currentMovieDetail &&
-          currentMovieDetail.production_companies &&
-          currentMovieDetail.production_companies.map((company) => (
-            company.logo_path && (
-              <span className="productionCompanyImage" key={company.id}>
-                <img
-                  className="movie__productionComapany"
-                  src={
-                    "https://image.tmdb.org/t/p/original" + company.logo_path
-                  }
-                  alt={company.name}
-                />
-                <span>{company.name}</span>
-              </span>
-            )
-          ))}
-      </div> */}
     </div>
   );
 };

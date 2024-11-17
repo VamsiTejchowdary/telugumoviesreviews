@@ -1,50 +1,173 @@
+/* Styles for the movie list */
 .movie__list {
-    padding: 0 1.5rem 2rem 1.5rem; /* Reduced padding for smaller screens */
+    padding: 0 1.5rem 2rem 1.5rem;
 }
 
 .list__title {
-    font-size: 1.5rem; /* Adjusted font size for better visibility on smaller screens */
-    margin: 1.5rem; /* Reduced margin for smaller screens */
-    text-align: center; /* Center-align for better appearance on small devices */
+    font-size: 1.5rem;
+    margin: 1.5rem;
+    text-align: center;
 }
 
 .list__cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem; /* Added gap for spacing between cards */
+    gap: 1rem;
 }
 
-/* Media Query for Tablets */
+/* Popup overlay - black background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* Popup content - Refined shape */
+.popup {
+    background-color: #0b0909; /* Dark background for popup */
+    color: white; /* White text for better contrast */
+    padding: 2rem; /* Increased padding for better spacing */
+    border-radius: 20px; /* Slightly more rounded corners */
+    text-align: center;
+    width: 60%; /* Default width */
+    height: auto; /* Allow height to adjust */
+    max-width: 500px; /* Limit max-width for large screens */
+    max-height: 400px; /* Restrict max height */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for better depth */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+/* Logo styling */
+.popup-logo {
+    width: 60%; /* Adjust the width of the logo */
+    max-width: 120px; /* Smaller max-width for a smaller logo */
+    margin: 0 auto 1.5rem; /* Center the logo horizontally with space below */
+}
+
+/* Close button for the popup */
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 2rem; /* Larger font for easy clicking */
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red; /* Red color on hover */
+}
+
+/* Heading and paragraph inside popup */
+.popup h3 {
+    font-family: 'Arial', sans-serif; /* Different font for heading */
+    font-size: 1.8rem;
+    margin-bottom: 1rem; /* Space between heading and paragraph */
+}
+
+.popup p {
+    font-family: 'Georgia', serif; /* Different font for paragraph */
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 0; /* Remove default margin from p */
+}
+
+/* Media Queries for responsiveness */
+
+/* For Tablets */
 @media (max-width: 768px) {
-    .movie__list {
-        padding: 0 1rem 1.5rem 1rem; /* Further reduced padding for tablets */
+    .popup {
+        width: 70%; /* Smaller width for tablets */
+        max-width: 400px; /* Ensure popup isn't too large */
+        padding: 1.5rem; /* Adjust padding for tablets */
+        max-height: 350px; /* Restrict max height for tablets */
     }
 
-    .list__title {
-        font-size: 1.3rem; /* Slightly smaller font for tablets */
-        margin: 1rem; /* Further reduced margin for tablets */
+    .popup-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center popup vertically */
     }
 
-    .list__cards {
-        gap: 0.8rem; /* Adjusted spacing between cards for tablets */
+    .close-btn {
+        font-size: 1.5rem;
+    }
+
+    .popup-logo {
+        max-width: 100px; /* Make logo even smaller for tablets */
     }
 }
 
-/* Media Query for Mobile Phones */
+/* For Mobile Phones */
 @media (max-width: 480px) {
-    .movie__list {
-        padding: 0 0.5rem 1rem 0.5rem; /* Compact padding for mobile phones */
+    .popup {
+        width: 70%; /* Set width for mobile */
+        height: 70%; /* Set height to be equal to width to create a square */
+        max-width: 350px; /* Limit max-width */
+        max-height: 350px; /* Limit max height */
+        padding: 1rem; /* Adjust padding */
+        border-radius: 15px; /* Slightly rounded corners */
     }
 
-    .list__title {
-        font-size: 1rem; /* Smaller font for mobile phones */
-        margin: 0.8rem; /* Minimal margin for mobile phones */
+    .popup-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center-align the popup */
     }
 
-    .list__cards {
-        flex-direction: column; /* Stack cards vertically on very small screens */
-        align-items: center; /* Center-align cards */
-        gap: 0.5rem; /* Reduced spacing between cards for mobile phones */
+    .close-btn {
+        font-size: 1.5rem;
+        right: 5px; /* Adjust button position */
+    }
+
+    .popup-logo {
+        max-width: 80px; /* Even smaller logo for mobile */
+    }
+
+    .popup h3 {
+        font-size: 1.4rem; /* Smaller font for mobile */
+    }
+
+    .popup p {
+        font-size: 0.9rem; /* Smaller text for mobile */
+    }
+}
+
+/* For Desktop Devices (larger than 768px) */
+@media (min-width: 769px) {
+    .popup {
+        width: 40%; /* Set width to 40% for a balanced appearance on desktop */
+        height: 40%; /* Set height to match width for square shape */
+        max-width: 500px; /* Limit max-width for larger screens */
+        max-height: 500px; /* Restrict max height to keep it square */
+        padding: 2rem; /* More padding for a larger popup */
+        border-radius: 20px; /* Rounded corners for a polished look */
+    }
+
+    .popup-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center-align the popup */
+    }
+
+    .close-btn {
+        font-size: 2rem;
+    }
+
+    .popup-logo {
+        max-width: 120px; /* Default size for desktop logo */
     }
 }

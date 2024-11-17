@@ -6,34 +6,40 @@ import Footer from "../../components/footer/footer";
 
 const MovieList = () => {
   const [movieList, setMovieList] = useState([]);
-  const [footer, setFooter] = useState(true); // Set footer state
+  const [footer, setFooter] = useState(true);
+  const [showPopup, setShowPopup] = useState(false); // State to manage popup visibility
   const { type } = useParams(); // Get 'type' from the URL
 
-  // Memoizing the getData function using useCallback to prevent it from being recreated on every render
   const getData = useCallback(() => {
     let apiUrl = "";
 
     if (type === "popular") {
       apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=acaba87d72eba033de2058214994a722&with_original_language=te&primary_release_date.gte=2015-01-01&sort_by=popularity.desc`;
-      setFooter(true); // Set footer to true for popular
+      setFooter(true);
+      setShowPopup(true); // Show the popup when the type is 'popular'
     } else if (type === "upcoming") {
       apiUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=acaba87d72eba033de2058214994a722&language=te&region=IN&release_date.gte=${
         new Date().toISOString().split("T")[0]
       }`;
-      setFooter(true); // Set footer to true for upcoming
+      setFooter(true);
     } else {
       apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=acaba87d72eba033de2058214994a722&with_original_language=te&primary_release_date.gte=2022-01-01&primary_release_date.lte=2024-12-31&sort_by=popularity.desc`;
-      setFooter(false); // Set footer to false for other types (in your case, else)
+      setFooter(false);
     }
 
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => setMovieList(data.results));
-  }, [type]); // Include 'type' as a dependency since it changes based on the URL
+  }, [type]);
 
   useEffect(() => {
-    getData(); // Call getData inside useEffect
-  }, [getData]); // Dependency on the memoized getData function
+    getData();
+  }, [getData]);
+
+  // Function to close the popup
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   return (
     <div>
@@ -49,7 +55,31 @@ const MovieList = () => {
           )}
         </div>
       </div>
-      {footer ? <Footer /> : null} {/* Conditionally render Footer */}
+
+      {/* Conditionally render the popup for the 'popular' type */}
+      {showPopup && type === "popular" && (
+        <div className="popup-overlay">
+          <div className="popup">
+            {/* TFamilyI Logo centered */}
+            <img
+              src="/finaltfilogo.png"
+              alt="TFamilyI Logo"
+              className="popup-logo"
+            />
+
+            <button className="close-btn" onClick={closePopup}>
+              X
+            </button>
+            <h3>Hey TFamilyI</h3>
+            <p>
+              The reviews on the popular page are averages of all ratings. For
+              TFI-specific reviews, visit the TFInsight page. ⭐🎬🔍
+            </p>
+          </div>
+        </div>
+      )}
+
+      {footer ? <Footer /> : null}
     </div>
   );
 };
