@@ -1,44 +1,46 @@
 /* General Styles for Cards */
 .cards {
     display: inline-block;
-    transition: transform .2s;
+    transition: transform .2s ease-in-out, box-shadow .3s ease-in-out; /* Smooth transition for hover */
     position: relative;
-    border-radius: 10px;
+    border-radius: 12px; /* Rounded corners */
     overflow: hidden;
-    margin: 0.19rem;
+    margin: 1rem; /* Space between cards */
     cursor: pointer;
-    min-width: 200px;
-    height: 300px;
+    width: 280px; /* Wider width */
+    height: auto; /* Height adjusts based on content */
+    aspect-ratio: 3 / 4; /* Set a custom aspect ratio (in between square and rectangle) */
     z-index: 0;
     border: 1px solid rgb(99, 99, 99);
-    box-sizing: border-box; /* Add box-sizing to include padding and border in width/height */
+    box-sizing: border-box;
 }
 
 .cards:hover {
-    transform: scale(1.2);
+    transform: scale(1.1); /* Slightly increased hover effect */
     z-index: 1000;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 24px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px; /* Subtle shadow effect */
 }
 
 .cards__img {
-    height: 300px;
     width: 100%; /* Ensure image is responsive */
-    box-sizing: border-box; /* Add box-sizing here too */
+    height: 100%; /* Ensure image fills the card */
+    object-fit: cover; /* Maintain aspect ratio while filling the space */
+    box-sizing: border-box;
 }
 
 .cards__overlay {
     position: absolute;
-    padding: 0 1rem 1rem 1rem;
+    padding: 1rem; /* Increased padding for better spacing */
     bottom: 0px;
-    height: 290px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    width: 85%;
     justify-content: flex-end;
-    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.7));
     opacity: 0;
-    transition: opacity .2s;
-    box-sizing: border-box; /* Add box-sizing here too */
+    transition: opacity .3s ease-in-out;
+    box-sizing: border-box;
 }
 
 .cards__overlay:hover {
@@ -47,54 +49,56 @@
 
 .card__title {
     font-weight: 900;
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.2rem; /* Larger title */
+    margin-bottom: 0.5rem;
 }
 
 .card__runtime {
-    font-size: .75rem;
+    font-size: 1rem;
     margin-bottom: 0.25rem;
 }
 
 .card__rating {
     float: right;
+    font-size: 1.1rem;
 }
 
 .card__description {
     font-style: italic;
-    font-size: .75rem;
+    font-size: 1rem;
     margin-bottom: 0.25rem;
 }
 
 /* Responsive Mobile View */
 @media (max-width: 768px) {
     .cards {
-        min-width: 150px;  /* Reduce the minimum width for smaller screens */
-        height: 250px;     /* Adjust height for mobile view */
-        margin: 0.5rem;    /* Adjust card margin for smaller screens */
+        width: 250px; /* Adjust width for mobile */
+        height: auto; /* Adjust height based on content */
+        aspect-ratio: 3 / 4; /* Keep the same aspect ratio on mobile */
+        margin: 1rem auto; /* Center cards on mobile */
     }
 
     .cards__img {
-        height: 200px;    /* Reduce image height */
+        height: 100%; /* Adjust image height */
     }
 
     .cards__overlay {
-        padding: 0.5rem;  /* Adjust padding for mobile */
-        height: 200px;    /* Adjust overlay height */
+        padding: 1rem; /* Increased padding for mobile */
+        height: 100%;
     }
 
     .card__title {
-        font-size: 0.9rem; /* Make title smaller */
+        font-size: 1.1rem;
     }
 
     .card__runtime {
-        font-size: 0.65rem; /* Adjust font size */
+        font-size: 0.9rem;
     }
 
     .card__description {
-        font-size: 0.65rem; /* Adjust font size */
-        display: -webkit-box; /* For truncating text in mobile */
-        -webkit-line-clamp: 3; /* Limit lines to 3 */
+        font-size: 0.9rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -103,27 +107,28 @@
 /* Responsive Tablet View (768px to 1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
     .cards {
-        min-width: 180px; /* Adjust the min-width */
-        height: 270px;    /* Adjust height */
+        width: 270px; /* Adjust width for tablet view */
+        height: auto; /* Dynamic height */
+        aspect-ratio: 3 / 4; /* Maintain aspect ratio */
     }
 
     .cards__img {
-        height: 250px;    /* Adjust image height */
+        height: 100%;
     }
 
     .cards__overlay {
-        height: 250px;    /* Adjust overlay height */
+        height: 100%;
     }
 
     .card__title {
-        font-size: 1rem;  /* Adjust font size */
+        font-size: 1.2rem;
     }
 
     .card__runtime {
-        font-size: 0.75rem; /* Adjust font size */
+        font-size: 1rem;
     }
 
     .card__description {
-        font-size: 0.75rem; /* Adjust font size */
+        font-size: 1rem;
     }
 }

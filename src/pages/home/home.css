@@ -55,6 +55,7 @@
     width: 80%; /* Increased width for better readability */
 }
 
+
 /* Media Query for Tablets */
 @media (max-width: 768px) {
     .posterImage {

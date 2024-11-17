@@ -115,7 +115,7 @@ const Movie = () => {
           </a>
         )}
       </div>
-      <div className="movie__heading">Production companies</div>
+      {/* <div className="movie__heading">Production companies</div>
       <div className="movie__production">
         {currentMovieDetail &&
           currentMovieDetail.production_companies &&
@@ -133,7 +133,7 @@ const Movie = () => {
               </span>
             )
           ))}
-      </div>
+      </div> */}
     </div>
   );
 };
