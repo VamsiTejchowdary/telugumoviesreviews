@@ -73,7 +73,7 @@ const MovieList = () => {
             <h3>Hey TFamilyI</h3>
             <p>
               The reviews on this page are averages of all ratings. For
-              TFI meter reviews, visit the TFInsight page. ⭐🎬🔍
+              TFI meter reviews, visit the TFInsights page. ⭐🎬🔍
             </p>
           </div>
         </div>

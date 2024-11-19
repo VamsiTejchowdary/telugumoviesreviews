@@ -37,6 +37,17 @@
     transform: translateY(-5px); /* Lift card on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
+.hidden-text {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+  .hidden-text {
+    visibility: hidden; /* or display: none; */
+  }
 
 /* Responsive Styles */
 
