@@ -90,7 +90,7 @@ const Header = () => {
         <Link to="/" onClick={handleLogoClick}>
           <img
             className={`header__icon ${isRotating ? "rotating" : ""}`}
-            src="finaltfilogo.png"
+            src="/finaltfilogo.png"
             alt="Logo"
           />
         </Link>
