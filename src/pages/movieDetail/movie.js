@@ -51,13 +51,23 @@ const Movie = () => {
               {currentMovieDetail ? currentMovieDetail.tagline : ""}
             </div>
             <div className="movie__rating">
-            {currentMovieDetail ? currentMovieDetail.vote_average : ""}{" "}
+              {currentMovieDetail
+                ? "Review(all over india): " + currentMovieDetail.vote_average
+                : ""}{" "}
               <i className="fas fa-star" />
               <span className="movie__voteCount">
                 {currentMovieDetail
-                  ? "(" + currentMovieDetail.vote_count + ") votes"
+                  ? "(" + currentMovieDetail.vote_count + ") references"
                   : ""}
               </span>
+            </div>
+            <div className="tfimetertext">
+              For{" "}
+              <span className="highlightedText">
+                TFI Meter{" "}
+                <i className="fas fa-star" style={{ color: "#FFD700" }} />
+              </span>
+               {" "}go to TFInsights
             </div>
             <div className="movie__runtime">
               {currentMovieDetail ? currentMovieDetail.runtime + " mins" : ""}

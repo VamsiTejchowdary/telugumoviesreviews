@@ -1,111 +1,165 @@
+/* General Styles */
+.poster {
+    margin-top: 100px; /* Adding margin top to ensure space for header */
+    width: 98%; /* Reduce width slightly for a cleaner look */
+    margin-left: auto; /* Align to the center if needed */
+    margin-right: auto;
+    border-radius: 10px; /* Add rounded corners for a modern look */
+    overflow: hidden; /* Ensure content fits within rounded edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
 .posterImage {
-    height: 400px; /* Reduced height for smaller screens */
+    height: 450px; /* Slightly increased height for better visuals */
     position: relative;
+    border-radius: 10px; /* Match carousel’s rounded corners */
 }
 
 .posterImage > img {
     margin: auto;
     display: block;
     width: 100%;
-    height: 100%; /* Ensures the image covers the container */
-    object-fit: cover; /* Maintains aspect ratio while filling the area */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* Smooth edges for images */
 }
 
 .posterImage__overlay {
     position: absolute;
-    padding: 2rem; /* Adjusted padding for smaller screens */
+    padding: 2rem;
     bottom: 0px;
-    height: 60%; /* Adjusted height for smaller screens */
+    height: 50%; /* Adjust overlay height */
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: flex-end;
     align-items: flex-start;
-    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
-    opacity: 1;
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1)); /* Improved gradient effect */
+    border-bottom-left-radius: 10px; /* Ensure overlay matches rounded edges */
+    border-bottom-right-radius: 10px;
     transition: opacity 0.3s;
-}
-
-.posterImage__overlay:hover {
-    opacity: 1;
 }
 
 .posterImage__title {
     font-weight: 900;
-    font-size: 2.5rem; /* Adjusted font size for smaller screens */
-    margin-bottom: 0.4rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
     text-align: left;
 }
 
 .posterImage__runtime {
-    font-size: 1.5rem; /* Adjusted font size for smaller screens */
-    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .posterImage__rating {
-    margin-left: 2rem; /* Reduced margin for smaller screens */
+    margin-left: 2rem;
 }
 
 .posterImage__description {
     font-style: italic;
-    font-size: 0.9rem; /* Adjusted font size for smaller screens */
-    margin-bottom: 0.25rem;
+    font-size: 1rem; /* Slightly larger for better readability */
+    margin-bottom: 0.5rem;
     display: flex;
     text-align: left;
-    width: 80%; /* Increased width for better readability */
+    width: 90%; /* Make descriptions slightly wider */
+    line-height: 1.5; /* Improve spacing for better readability */
 }
 
+.review-prompt {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
 
-/* Media Query for Tablets */
+.review-prompt a {
+    font-weight: bold;
+    color: #5b2b2b; /* You can adjust this color */
+    text-decoration: none;
+}
+
+.review-prompt a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
+    .poster {
+        width: 90%; /* Ensure the carousel does not touch screen edges */
+        margin: 0 auto; /* Center the carousel */
+    }
+
     .posterImage {
-        height: 300px; /* Reduced height for tablets */
+        height: 350px; /* Increased height for better visuals */
     }
 
     .posterImage__overlay {
-        padding: 1.5rem; /* Reduced padding for tablets */
-        height: 50%; /* Adjusted overlay height for tablets */
+        padding: 1.5rem;
+        height: 50%;
     }
 
     .posterImage__title {
-        font-size: 2rem; /* Reduced font size for tablets */
+        font-size: 2rem;
     }
 
     .posterImage__runtime {
-        font-size: 1.2rem; /* Reduced font size for tablets */
+        font-size: 1.2rem;
     }
 
     .posterImage__description {
-        font-size: 0.8rem; /* Reduced font size for tablets */
-        width: 90%; /* Increased width for readability */
+        font-size: 0.8rem;
+        width: 90%; /* Keep the description aligned */
     }
 }
 
-/* Media Query for Mobile Phones */
 @media (max-width: 480px) {
+    .poster {
+        width: 95%; /* Make carousel narrower for small screens */
+        margin: 0 auto; /* Center the carousel */
+        border-radius: 10px; /* Rounded edges for the entire carousel */
+        overflow: hidden; /* Ensure content fits within rounded edges */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add depth */
+    }
+
     .posterImage {
-        height: 200px; /* Further reduced height for mobile phones */
+        height: 300px; /* Improved height for smaller screens */
+        border-radius: 10px; /* Match with carousel's rounded edges */
+    }
+
+    .posterImage > img {
+        margin: auto;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px; /* Smooth edges for images */
     }
 
     .posterImage__overlay {
-        padding: 1rem; /* Further reduced padding for mobile phones */
-        height: 40%; /* Adjusted overlay height for mobile phones */
+        padding: 1rem;
+        height: 45%; /* Adjust overlay height for better readability */
+        border-bottom-left-radius: 10px; /* Ensure overlay matches the rounded edges */
+        border-bottom-right-radius: 10px;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Enhance gradient effect */
     }
 
     .posterImage__title {
-        font-size: 1.5rem; /* Further reduced font size for mobile phones */
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem; /* Add space below title */
     }
 
     .posterImage__runtime {
-        font-size: 1rem; /* Further reduced font size for mobile phones */
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     .posterImage__rating {
-        margin-left: 1rem; /* Reduced margin for mobile phones */
+        margin-left: 1rem;
     }
 
     .posterImage__description {
-        font-size: 0.7rem; /* Further reduced font size for mobile phones */
-        width: 100%; /* Full width for readability */
+        font-size: 0.8rem; /* Increased readability */
+        width: 100%; /* Keep the description fully visible */
+        line-height: 1.3; /* Improve line spacing for better readability */
     }
 }

@@ -11,13 +11,24 @@ const Header = () => {
     message: "",
   });
   const [statusMessage, setStatusMessage] = useState("");
+  const [isRotating, setIsRotating] = useState(false); // Track rotation state
+  //const [isLotteryPopupOpen, setIsLotteryPopupOpen] = useState(false); // Lottery popup state
+
+  // Show the lottery popup after 3 seconds
+  // useEffect(() => {
+    // const timer = setTimeout(() => {
+    //   setIsLotteryPopupOpen(true);
+    // }, 3000);
+
+  //   return () => clearTimeout(timer); // Clean up the timer on unmount
+  // }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const toggleContactForm = (e) => {
-    e.preventDefault(); // Prevent the default Link behavior (page navigation)
+    e.preventDefault();
     setIsContactFormOpen(!isContactFormOpen);
     setStatusMessage(""); // Reset the status message when the form is closed
     setIsMenuOpen(false); // Close the menu when contact form is opened
@@ -64,11 +75,24 @@ const Header = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    setIsRotating(true);
+    setTimeout(() => setIsRotating(false), 1000); // Reset rotation after animation
+  };
+
+  // const handleLotteryClose = () => {
+  //   setIsLotteryPopupOpen(false);
+  // };
+
   return (
     <div className="header">
       <div className="headerLeft">
-        <Link to="/">
-          <img className="header__icon" src="finaltfilogo.png" alt="Logo" />
+        <Link to="/" onClick={handleLogoClick}>
+          <img
+            className={`header__icon ${isRotating ? "rotating" : ""}`}
+            src="finaltfilogo.png"
+            alt="Logo"
+          />
         </Link>
       </div>
       {/* Hamburger Menu Icon */}
@@ -84,7 +108,14 @@ const Header = () => {
           style={{ textDecoration: "none" }}
           onClick={() => setIsMenuOpen(false)}
         >
-          <span>TFInsighta</span>
+          <span>TFInsights</span>
+        </Link>
+        <Link
+          to="/movies/reviewform"
+          style={{ textDecoration: "none" }}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <span>Review Form</span>
         </Link>
         <Link
           to="/movies/popular"

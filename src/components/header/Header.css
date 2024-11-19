@@ -147,6 +147,54 @@ a > span:hover {
     background-color: #d32f2f;
 }
 
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.header__icon.rotating {
+    animation: rotate 1s linear;
+}
+/* Scrollable Banner Styles */
+.scroll-banner {
+    background-color: #ff9800; /* Orange background */
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .scroll-banner::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+  }
+  
+  .scroll-banner {
+    animation: scroll-text 10s linear infinite;
+  }
+  
+  @keyframes scroll-text {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 /* Responsive Styles */
 @media (max-width: 768px) {
     /* For mobile view, hide the menu and display hamburger */
@@ -192,5 +240,8 @@ a > span:hover {
 
     .contact-form .close {
         padding: 8px 16px; /* Adjust close button padding */
+    }
+    .header__icon.rotating {
+        animation: rotate 0.8s linear; /* Slightly faster on mobile */
     }
 }

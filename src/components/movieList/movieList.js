@@ -72,8 +72,8 @@ const MovieList = () => {
             </button>
             <h3>Hey TFamilyI</h3>
             <p>
-              The reviews on the popular page are averages of all ratings. For
-              TFI-specific reviews, visit the TFInsight page. ⭐🎬🔍
+              The reviews on this page are averages of all ratings. For
+              TFI meter reviews, visit the TFInsight page. ⭐🎬🔍
             </p>
           </div>
         </div>

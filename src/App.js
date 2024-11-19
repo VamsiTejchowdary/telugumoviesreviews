@@ -6,6 +6,7 @@ import MovieList from './components/movieList/movieList';
 import Movie from './pages/movieDetail/movie';
 import TFIReviews from './components/tfimeterlist/reviewmovielist';
 import MovieReview from './pages/movieDetail/moviereview';
+import ReviewForm from './components/reviewform/reviewform';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="movie/:id" element={<Movie />} />
           <Route path="movies/:type" element={<MovieList />} />
           <Route path="movies/Insights" element={<TFIReviews />} />
+          <Route path="movies/Reviewform" element={<ReviewForm />} />
           <Route path="/moviereview/:id/:rating" element={<MovieReview />} />
           <Route path="/*" element={<h1>Error Page</h1>} />
         </Routes>

@@ -129,6 +129,23 @@
     margin: 1rem;
 }
 
+.tfimetertext {
+    font-size: 1rem; /* Adjust size as needed */
+    color: white; /* Default color */
+}
+
+.highlightedText {
+    color: yellow; /* Highlight TFI Meter in yellow */
+    font-weight: bold; /* Optional: Make it bold for emphasis */
+    display: inline-flex; /* To align text and icon properly */
+    align-items: center; /* Align icon with text */
+}
+
+.highlightedText .fa-star {
+    margin-left: 5px; /* Add spacing between text and icon */
+    font-size: 1rem; /* Adjust icon size to match text */
+}
+
 @media (min-width: 768px) {
     .movie__detail {
         flex-direction: row; /* Row layout for larger screens */

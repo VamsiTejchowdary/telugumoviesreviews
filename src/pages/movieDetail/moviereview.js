@@ -51,7 +51,10 @@ const MovieReview = () => {
               {currentMovieDetail?.tagline || "Tagline Not Available"}
             </div>
             <div className="movie__rating">
-              <strong>TFI Meter:</strong> {rating || "No rating available"}
+              <strong style={{ color: "#FFD700" }}>TFI Meter:</strong>{" "}
+              <span style={{ color: "#FFD700" }}>
+                {rating || "No rating available"}
+              </span>
               <i className="fas fa-star" style={{ color: "#FFD700" }} />
             </div>
             <div className="movie__runtime">

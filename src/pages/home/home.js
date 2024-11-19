@@ -7,37 +7,56 @@ import TFI from "../../components/tfimeterlist/reviewmovielist";
 
 const Home = () => {
     const [recentMovies, setRecentMovies] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState("");
+    const [isTextVisible, setIsTextVisible] = useState(false); // State to track text visibility
 
     useEffect(() => {
         const fetchRecentMovies = async () => {
             try {
-                // Fetch the most recent Telugu movies
                 const response = await fetch(
                     `https://api.themoviedb.org/3/discover/movie?api_key=acaba87d72eba033de2058214994a722&with_original_language=te&sort_by=release_date.desc&vote_average.gte=5&page=1`
                 );
                 const data = await response.json();
 
-                // Get the first 8 movies
                 setRecentMovies(data.results.slice(0, 8));
+                setIsLoading(false);
             } catch (error) {
                 console.error("Error fetching recent Telugu movies:", error);
+                setError("Failed to load movies.");
+                setIsLoading(false);
             }
         };
 
         fetchRecentMovies();
+
+        // Set the text to appear for 5 seconds
+        const timer = setTimeout(() => {
+            setIsTextVisible(true);
+            setTimeout(() => {
+                setIsTextVisible(false);
+            }, 6000); // Hide the text after 5 seconds
+        }, 0); // Show text immediately after the page loads
+
+        return () => clearTimeout(timer); // Cleanup the timer on unmount
     }, []);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
 
     return (
         <>
             <div className="poster">
                 <div>
-                    <h1>Recent Telugu Movies</h1>
-                </div>
-                <div>
                     <Carousel
                         showThumbs={false}
                         autoPlay={true}
-                        transitionTime={3}
+                        transitionTime={1000} // Adjust transition time
                         infiniteLoop={true}
                         showStatus={false}
                     >
@@ -59,10 +78,6 @@ const Home = () => {
                                     </div>
                                     <div className="posterImage__runtime">
                                         {movie?.release_date}
-                                        <span className="posterImage__rating">
-                                            {movie?.vote_average}
-                                            <i className="fas fa-star" />
-                                        </span>
                                     </div>
                                     <div className="posterImage__description">
                                         {movie?.overview}
@@ -72,6 +87,17 @@ const Home = () => {
                         ))}
                     </Carousel>
                 </div>
+                {/* Text below the carousel (visible for 5 seconds) */}
+                {isTextVisible && (
+                    <div className="review-prompt">
+                        <p>
+                            Submit your recent movie review and get tickets for <strong>Pushpa 2</strong>! 
+                            <Link to="/movies/reviewform" style={{ textDecoration: "none", color: "#ffffff;" }}>
+                                Review Form
+                            </Link>
+                        </p>
+                    </div>
+                )}
                 {/* Pass recentMovies to TFI component if needed */}
                 <TFI recentMovies={recentMovies} />
             </div>
