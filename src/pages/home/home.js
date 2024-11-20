@@ -57,7 +57,7 @@ const Home = () => {
           <div className="review-prompt">
             <p>
               Submit your recent movie review and get tickets for{" "}
-              <strong>Pushpa 2</strong>!
+              <strong>upcoming releases</strong>{" "}
               <Link
                 to="/movies/reviewform"
                 style={{ textDecoration: "none", color: "#ffffff;" }}
