@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
 import "./reviewform.css";
 
 const ReviewForm = () => {
@@ -26,25 +27,24 @@ const ReviewForm = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
 
+    // Prepare the data to be sent via EmailJS
     const formSubmissionData = {
-      ...formData,
-      rating, // Include rating in submission
-      access_key: "d99c2fc0-25ab-446c-af36-42741b91479e",
+      user_name: formData.name,
+      user_email: formData.email,
+      moviename: formData.moviename,
+      rating: rating,
+      review: formData.review,
     };
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formSubmissionData),
-      });
+      const res = await emailjs.send(
+        'service_5ltgdc8',  // Replace with your service ID
+        'template_i2hcltt',  // Replace with your template ID
+        formSubmissionData,
+        'aRWwlSFOde2kvNqWc'  // Replace with your public key
+      );
 
-      const result = await res.json();
-
-      if (result.success) {
+      if (res.text === "OK") {
         setStatusMessage(
           "Thanks for sharing your movie review! 🎬🍿 Best of luck – may your review bring you closer to winning the lottery! 💰🍀✨"
         );

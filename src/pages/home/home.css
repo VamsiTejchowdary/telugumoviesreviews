@@ -69,13 +69,14 @@
 .review-prompt {
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 30px; /* Adds space between the text and carousel */
     font-size: 18px;
-    color: #333;
+    color: #9a9999;
 }
 
 .review-prompt a {
     font-weight: bold;
-    color: #5b2b2b; /* You can adjust this color */
+    color: #5b2b2b; /* Adjusted color */
     text-decoration: none;
 }
 
@@ -83,6 +84,7 @@
     text-decoration: underline;
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .poster {
         width: 90%; /* Ensure the carousel does not touch screen edges */
@@ -109,6 +111,11 @@
     .posterImage__description {
         font-size: 0.8rem;
         width: 90%; /* Keep the description aligned */
+    }
+
+    .review-prompt {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        margin-bottom: 20px; /* Adjust spacing */
     }
 }
 
@@ -161,5 +168,10 @@
         font-size: 0.8rem; /* Increased readability */
         width: 100%; /* Keep the description fully visible */
         line-height: 1.3; /* Improve line spacing for better readability */
+    }
+
+    .review-prompt {
+        font-size: 14px; /* Smaller font for small devices */
+        margin-bottom: 15px; /* Adjust spacing */
     }
 }

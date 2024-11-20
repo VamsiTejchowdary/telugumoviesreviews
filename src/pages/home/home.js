@@ -53,6 +53,20 @@ const Home = () => {
     <>
       <div className="poster">
         <div>
+        {isTextVisible && (
+          <div className="review-prompt">
+            <p>
+              Submit your recent movie review and get tickets for{" "}
+              <strong>Pushpa 2</strong>!
+              <Link
+                to="/movies/reviewform"
+                style={{ textDecoration: "none", color: "#ffffff;" }}
+              >
+                Review Form
+              </Link>
+            </p>
+          </div>
+        )}
           <Carousel
             showThumbs={false}
             autoPlay={true}
@@ -88,20 +102,6 @@ const Home = () => {
             ))}
           </Carousel>
         </div>
-        {isTextVisible && (
-          <div className="review-prompt">
-            <p>
-              Submit your recent movie review and get tickets for{" "}
-              <strong>Pushpa 2</strong>!
-              <Link
-                to="/movies/reviewform"
-                style={{ textDecoration: "none", color: "#ffffff;" }}
-              >
-                Review Form
-              </Link>
-            </p>
-          </div>
-        )}
         <TFI recentMovies={recentMovies} />
       </div>
     </>

@@ -1,10 +1,8 @@
-/* src/components/footer.css */
-
 /* Footer Styles */
 .footer {
     background-color: #000; /* Set background to black */
     color: white; /* Set text color to white */
-    padding: 1rem 0;
+    padding: 2rem 1rem; /* Add padding for better spacing */
     position: relative;
     bottom: 0;
     width: 100%;
@@ -15,17 +13,72 @@
 
 .footer-content p {
     margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align horizontally */
+    gap: 1rem; /* Space between text and icon */
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Text color */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #f09433; /* Instagram gradient primary color */
+    transform: scale(1.1); /* Subtle zoom effect */
+}
+
+.social-icon {
+    width: 30px; /* Adjust icon size */
+    height: 30px;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .footer {
-        padding: 1rem;
+        padding: 1.5rem;
+    }
+
+    .social-link {
+        font-size: 0.9rem;
+    }
+
+    .social-icon {
+        width: 25px; /* Adjust icon size for smaller screens */
+        height: 25px;
     }
 }
 
 @media (max-width: 480px) {
     .footer {
-        padding: 0.8rem;
+        padding: 1rem;
+    }
+
+    .social-icons {
+        flex-direction: column; /* Stack icon and text vertically */
+        gap: 0.8rem;
+    }
+
+    .social-link {
+        gap: 0.3rem; /* Reduced gap for smaller screens */
+    }
+
+    .social-icon {
+        width: 20px; /* Adjust icon size further */
+        height: 20px;
     }
 }
