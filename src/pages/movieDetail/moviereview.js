@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import { useRating } from "../../context/RatingContext"; // Import useRating hook
 import "./movie.css";
 
 const MovieReview = () => {
   const location = useLocation(); // Get location to access state
-  const { id, rating } = useParams(); // Extract `id` and `rating` from URL
+  const { id } = useParams(); // Extract `id` from URL
+  const { rating, review } = useRating(); // Get rating and review from context
   const [currentMovieDetail, setMovie] = useState(location.state?.movieDetails || null); // Initialize with passed state or null
 
   useEffect(() => {
@@ -79,10 +81,10 @@ const MovieReview = () => {
               )}
             </div>
           </div>
-          <div className="movie__detailRightBottom">
-            <div className="synopsisText">Synopsis</div>
+          <div >
+            <div className="synopsisText">TFInsiders Review:</div>
             <div>
-              {currentMovieDetail?.overview || "Synopsis Not Available"}
+              {review}
             </div>
           </div>
         </div>

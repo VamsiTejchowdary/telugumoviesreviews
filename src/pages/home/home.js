@@ -9,7 +9,8 @@ const Home = () => {
   const [recentMovies, setRecentMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  const [isTextVisible, setIsTextVisible] = useState(false); // State to track text visibility
+  const [isTextVisible, setIsTextVisible] = useState(false);
+//   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   useEffect(() => {
     const fetchRecentMovies = async () => {
@@ -18,7 +19,6 @@ const Home = () => {
           `https://api.themoviedb.org/3/discover/movie?api_key=acaba87d72eba033de2058214994a722&with_original_language=te&sort_by=release_date.desc&vote_average.gte=5&page=1`
         );
         const data = await response.json();
-
         setRecentMovies(data.results.slice(0, 8));
         setIsLoading(false);
       } catch (error) {
@@ -30,15 +30,20 @@ const Home = () => {
 
     fetchRecentMovies();
 
-    // Set the text to appear for 5 seconds
+    // const popupShown = sessionStorage.getItem("popupShown");
+    // if (!popupShown) {
+    //   setIsPopupVisible(true);
+    //   sessionStorage.setItem("popupShown", "true");
+    // }
+
     const timer = setTimeout(() => {
       setIsTextVisible(true);
       setTimeout(() => {
         setIsTextVisible(false);
-      }, 6000); // Hide the text after 5 seconds
-    }, 0); // Show text immediately after the page loads
+      }, 6000);
+    }, 0);
 
-    return () => clearTimeout(timer); // Cleanup the timer on unmount
+    return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
@@ -51,22 +56,42 @@ const Home = () => {
 
   return (
     <>
+      {/* {isPopupVisible && (
+    <div className="tfi-popup">
+        <div className="tfi-popup-content">
+            <img
+                src="/finaltfilogo.png" // Replace with the logo URL
+                alt="Announcement Logo"
+                className="tfi-popup-logo"
+            />
+            <p className="tfi-popup-text">
+                🎉 Hurray! Winners of the week have been announced. Get your free tickets now! 🎟️
+            </p>
+            <button
+                className="tfi-popup-close"
+                onClick={() => setIsPopupVisible(false)}
+            >
+                Close
+            </button>
+        </div>
+    </div>
+)} */}
       <div className="poster">
         <div>
-        {isTextVisible && (
-          <div className="review-prompt">
-            <p>
-              Submit your recent movie review and get tickets for{" "}
-              <strong>upcoming releases</strong>{" "}
-              <Link
-                to="/movies/reviewform"
-                style={{ textDecoration: "none", color: "#ffffff;" }}
-              >
-                Review Form
-              </Link>
-            </p>
-          </div>
-        )}
+          {isTextVisible && (
+            <div className="review-prompt">
+              <p>
+                Submit your recent movie review and get tickets for{" "}
+                <strong>upcoming releases</strong>{" "}
+                <Link
+                  to="/movies/reviewform"
+                  style={{ textDecoration: "none", color: "#ffffff;" }}
+                >
+                  Review Form
+                </Link>
+              </p>
+            </div>
+          )}
           <Carousel
             showThumbs={false}
             autoPlay={true}

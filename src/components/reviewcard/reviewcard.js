@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Link } from "react-router-dom";
+import { useRating } from "../../context/RatingContext"; // Import useRating hook
 import "./reviewcard.css";
 
-const ReviewCard = ({ movie, rating }) => {
+const ReviewCard = ({ movie, rating, review }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { setRating, setReview } = useRating(); // Get setRating and setReview from context
 
   useEffect(() => {
     setTimeout(() => {
@@ -12,7 +14,10 @@ const ReviewCard = ({ movie, rating }) => {
     }, 1500); // Simulate loading time of 1.5 seconds
   }, []);
 
-  console.log("ReviewCard - Rating passed:", rating); // Log rating
+  const handleClick = () => {
+    setRating(rating); // Store rating in context
+    setReview(review); // Store review in context
+  };
 
   return (
     <>
@@ -24,10 +29,9 @@ const ReviewCard = ({ movie, rating }) => {
         </div>
       ) : (
         <Link
-          to={{
-            pathname: `/moviereview/${movie.id}/${rating}`,// Pass movieDetails and rating here
-          }}
+          to={`/moviereview/${movie.id}`} // Only pass movie ID in the URL
           style={{ textDecoration: "none", color: "white" }}
+          onClick={handleClick} // Store rating and review when clicked
         >
           <div className="review-card">
             <img
