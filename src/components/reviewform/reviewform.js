@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { db } from "../../firebase"; // Import Firestore database instance
+import { collection, addDoc } from "firebase/firestore";
 import "./reviewform.css";
 
 const ReviewForm = () => {
@@ -51,19 +53,33 @@ const ReviewForm = () => {
     };
 
     try {
+      // Send email using EmailJS
       const res = await emailjs.send(
         "service_5ltgdc8", // Replace with your service ID
         "template_i2hcltt", // Replace with your template ID
         formSubmissionData,
         "aRWwlSFOde2kvNqWc" // Replace with your public key
       );
-
+      
       if (res.text === "OK") {
+        // Add data to Firestore
+        
+        await addDoc(collection(db, "review"), {
+          name: formData.name ,
+          email: formData.email,
+          moviename: formData.moviename,
+          moviereview: formData.review ,
+          instaid: formData.instaid,
+          rating: rating,
+          createdat: new Date(), // Add a timestamp for when the review was submitted
+        });
+
         setStatusMessage(
           isTelugu
             ? "మీ సినిమా సమీక్షను పంచుకున్నందుకు ధన్యవాదాలు! 🎬🍿 మీ సమీక్ష మీను లాటరీ గెలుచుకోవడానికి దగ్గర చేస్తుందని ఆశిస్తున్నాము! 💰🍀✨"
             : "Thanks for sharing your movie review! 🎬🍿 Best of luck – may your review bring you closer to winning the lottery! 💰🍀✨"
         );
+
         setFormData({
           name: "",
           email: "",
@@ -76,6 +92,7 @@ const ReviewForm = () => {
         setStatusMessage("Oops! Something went wrong. Please try again.");
       }
     } catch (error) {
+      console.error("Error submitting review:", error);
       setStatusMessage("Error: Could not submit form. Please try again later.");
     } finally {
       setIsSubmitting(false); // Enable button after submission is processed
