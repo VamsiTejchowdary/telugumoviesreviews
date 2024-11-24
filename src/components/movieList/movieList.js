@@ -13,7 +13,7 @@ const MovieList = () => {
 
   const getData = useCallback(async () => {
     let apiUrl = "";
-    const fallbackMovieIds = [1035998]; // Hardcoded fallback movie IDs
+    const fallbackMovieIds = []; // Hardcoded fallback movie IDs
 
     if (type === "popular") {
       apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=acaba87d72eba033de2058214994a722&with_original_language=te&primary_release_date.gte=2015-01-01&sort_by=popularity.desc`;

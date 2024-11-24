@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { db } from "../../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,6 +46,13 @@ const Header = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    
+      await addDoc(collection(db, "contacts"), {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      timestamp: new Date(), // Optionally add a timestamp
+    });
 
     const formSubmissionData = {
       ...formData,
