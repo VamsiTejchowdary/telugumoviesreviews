@@ -9,10 +9,12 @@ const ReviewsmovieList = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       const movies = [];
-      const limit = 9; // Limit the number of movie cards displayed
+      const limit = 10; // Limit the number of movie cards displayed
   
       // Hardcoded movie IDs and ratings
       const movieData = [
+        
+        { id: 1390698, rating: 8.1, review: "\"Satyadev anna kummesada chala baga act chesad enjoyed a lot.\"" }, //Zebra
         { id: 1102353, rating: 7.7, review: "\"Ok First Half, Excellent Second half with good twists. Vishwak anna agressive tandavamey\"." }, //Mechanic Rocky
         { id: 1233327, rating: 5.5, review: "\"Should be taken better\"" }, // Matka
         { id: 1239511, rating: 8.4, review: "\"After a different concept like Sir/Vaathi, Venky Atluri made a movie like Wolf of Wall Street and he succeeded in it. Bound script, tight screenplay, crisp runtime added value to the movie. Actors Dulqer Salman, Meenakshi Choudary did their best and the supporting characters also performed well. Even though some scenes feels like illogical, most of the movie makes sense. The writing and directing part by Venky Atluri outstands. Worth watching.\"" }, // Lucky Bhaskar

@@ -26,9 +26,11 @@ const MovieReview = () => {
       <div className="movie__intro">
         <img
           className="movie__backdrop"
-          src={`https://image.tmdb.org/t/p/original${
-            currentMovieDetail?.backdrop_path || ""
-          }`}
+          src={
+            currentMovieDetail?.backdrop_path
+              ? `https://image.tmdb.org/t/p/original${currentMovieDetail.backdrop_path}`
+              : "/finaltfilogo.png"
+          }
           alt="Movie Backdrop"
         />
       </div>
@@ -81,11 +83,9 @@ const MovieReview = () => {
               )}
             </div>
           </div>
-          <div >
+          <div>
             <div className="synopsisText">TFInsiders Review:</div>
-            <div>
-              {review}
-            </div>
+            <div>{review}</div>
           </div>
         </div>
       </div>
