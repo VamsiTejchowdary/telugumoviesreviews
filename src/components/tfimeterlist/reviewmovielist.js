@@ -13,7 +13,7 @@ const ReviewsmovieList = () => {
   
       // Hardcoded movie IDs and ratings
       const movieData = [
-        { id: 857598, rating: 8.5, review: "\"First Half keka, second half good going over all ga rapa rapa.\"" }, //Pushpa-2
+        { id: 857598, rating: 7.9, review: "\"First Half keka, second half good going over all ga rapa rapa.\"" }, //Pushpa-2
         { id: 1390698, rating: 8.1, review: "\"Satyadev anna kummesada chala baga act chesad enjoyed a lot.\"" }, //Zebra
         { id: 1102353, rating: 7.7, review: "\"Ok First Half, Excellent Second half with good twists. Vishwak anna agressive tandavamey\"." }, //Mechanic Rocky
         { id: 1233327, rating: 5.5, review: "\"Should be taken better\"" }, // Matka
