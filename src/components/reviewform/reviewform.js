@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { db } from "../../firebase"; // Import Firestore database instance
 import { collection, addDoc } from "firebase/firestore";
 import "./reviewform.css";
+import Footer from "../../components/footer/footer";
 
 const ReviewForm = () => {
   const [formData, setFormData] = useState({
@@ -222,6 +223,9 @@ const ReviewForm = () => {
             {isTelugu ? "సమర్పించండి" : "Submit"}
           </button>
         </form>
+      </div>
+      <div>
+      <Footer />
       </div>
     </div>
   );

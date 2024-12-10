@@ -7,13 +7,11 @@ import Movie from './pages/movieDetail/movie';
 import TFIReviews from './components/tfimeterlist/reviewmovielist';
 import MovieReview from './pages/movieDetail/moviereview';
 import ReviewForm from './components/reviewform/reviewform';
-import { RatingProvider } from './context/RatingContext'; 
+import FAQ from './components/faq/faq';
 
 function App() {
   return (
     <div className="App">
-      
-      <RatingProvider> {/* Wrap the app with RatingProvider */}
         <Router>
           <Header />
           <Routes>
@@ -22,11 +20,11 @@ function App() {
             <Route path="movies/:type" element={<MovieList />} />
             <Route path="movies/Insights" element={<TFIReviews />} />
             <Route path="movies/Reviewform" element={<ReviewForm />} />
+            <Route path="/FAQ" element={<FAQ />} />
             <Route path="/moviereview/:id" element={<MovieReview />} /> {/* Remove the :rating from the URL */}
             <Route path="/*" element={<h1>Error Page</h1>} />
           </Routes>
         </Router>
-      </RatingProvider>
     </div>
   );
 }

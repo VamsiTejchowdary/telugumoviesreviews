@@ -89,6 +89,8 @@ const Header = () => {
     setTimeout(() => setIsRotating(false), 1000); // Reset rotation after animation
   };
 
+  
+
   // const handleLotteryClose = () => {
   //   setIsLotteryPopupOpen(false);
   // };
@@ -139,6 +141,13 @@ const Header = () => {
           onClick={() => setIsMenuOpen(false)}
         >
           <span>Upcoming</span>
+        </Link>
+        <Link
+          to="/FAQ"
+          style={{ textDecoration: "none" }}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <span>FAQ</span>
         </Link>
         <Link
           to="#"

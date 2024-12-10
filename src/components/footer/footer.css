@@ -31,20 +31,24 @@
     color: white; /* Text color */
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Space between icon and text */
+    gap: 0.5rem; /* Space between text and icon */
     font-size: 1rem;
     font-weight: 600;
-    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.social-link:hover {
-    color: #f09433; /* Instagram gradient primary color */
-    transform: scale(1.1); /* Subtle zoom effect */
+.social-link:hover .social-icon {
+    transform: scale(1.2); /* Only icon zooms */
+    transition: transform 0.3s ease;
 }
 
 .social-icon {
     width: 30px; /* Adjust icon size */
     height: 30px;
+}
+
+.social-text {
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 /* Responsive Styles */
@@ -69,7 +73,7 @@
     }
 
     .social-icons {
-        flex-direction: column; /* Stack icon and text vertically */
+        flex-direction: column; /* Stack text and icon vertically */
         gap: 0.8rem;
     }
 
