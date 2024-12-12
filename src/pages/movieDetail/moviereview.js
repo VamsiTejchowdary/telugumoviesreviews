@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useLocation, useParams } from "react-router-dom";
-//import { useRating } from "../../context/RatingContext"; // Import useRating hook
 import "./moviereview.css";
 
 const MovieReview = () => {
@@ -9,11 +8,10 @@ const MovieReview = () => {
   const [currentMovieDetail, setMovie] = useState(
     location.state?.movieDetails || null
   ); // Initialize with passed state or null
-  const [trailerLink, setTrailerLink] = useState(null); // Initialize youtubelink state
+  const [trailerLink, setTrailerLink] = useState(null); // Initialize YouTube link state
   const [reviewLink, setReviewLink] = useState(null); // Initialize review link state
-  const [rating, setRating] = useState(null); // Initialize review link state
-  const [moviereview, setMovieReview] = useState(null); // Initialize review link state
-
+  const [rating, setRating] = useState(null); // Initialize rating state
+  const [moviereview, setMovieReview] = useState(null); // Initialize review text state
 
   const movieLinks = useMemo(() => ({
     "857598": {
@@ -95,9 +93,8 @@ const MovieReview = () => {
   }
     // Add more movies here as needed
   }), []);
-  
+
   useEffect(() => {
-    // Fetch movie details if not passed via state
     if (!currentMovieDetail) {
       fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=acaba87d72eba033de2058214994a722`
@@ -108,17 +105,19 @@ const MovieReview = () => {
           console.error("Error fetching movie details:", error)
         );
     }
-  
-    // Set YouTube and review links based on movie ID
+
     const movieData = movieLinks[id] || {};
-    setTrailerLink(movieData.trailerLink || null); // Default to null if no link is found
+    setTrailerLink(movieData.trailerLink || null);
     setReviewLink(movieData.reviewLink || null);
     setRating(movieData.rating || null);
     setMovieReview(movieData.moviereview || null);
-  
   }, [id, currentMovieDetail, movieLinks]);
-  
- 
+
+  const getYouTubeEmbedUrl = (url) => {
+    const urlParams = new URL(url).searchParams;
+    return `https://www.youtube.com/embed/${urlParams.get("v")}`;
+  };
+
   return (
     <div className="movie">
       <div className="movie__intro">
@@ -192,28 +191,20 @@ const MovieReview = () => {
         </div>
       </div>
 
-      {/* YouTube Links Section */}
+      {/* Embedded Trailer Section */}
+      {trailerLink && (
+        <div className="movie__trailer">
+          <iframe
+            src={getYouTubeEmbedUrl(trailerLink)}
+            title="YouTube trailer"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
+      
       <div className="movie__links">
-        <div className="movie__heading">Related Links</div>
-        {trailerLink ? (
-          <a
-            href={trailerLink}
-            target="_blank"
-            rel="noreferrer noopener"
-            style={{ textDecoration: "none" }}
-          >
-            <p>
-              <span className="movie_trailerButton trailer__button">
-                Watch Trailer{" "}
-                <i className="newTab fas fa-external-link-alt"></i>
-              </span>
-            </p>
-          </a>
-        ) : (
-          <p>No YouTube link available.</p>
-        )}
-
-        {reviewLink ? (
+      {reviewLink ? (
           <a
             href={reviewLink}
             target="_blank"
@@ -227,17 +218,16 @@ const MovieReview = () => {
             </p>
           </a>
         ) : (
-          <p>No review link available.</p>
+          <p>No public review link available.</p>
         )}
       </div>
 
-      {/* Useful Links Section */}
+      
       <div className="movie__links">
         <div className="movie__heading">GET FREE TICKETS</div>
-
         <a
-          href="/movies/reviewform" // Update the URL to the review form page
-          style={{ textDecoration: "none", color: "#ffffff" }} // Keep the styling consistent
+          href="/movies/reviewform"
+          style={{ textDecoration: "none", color: "#ffffff" }}
         >
           <p>
             <span className="movie__reviewButton review__Button">
