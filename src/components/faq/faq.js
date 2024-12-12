@@ -30,7 +30,7 @@ const FAQ = () => {
       answer:
         "If you don’t win, submit a review for the next giveaway to increase your chances. Each review for giveaway adds an extra entry, and your chances build up for up to five giveaways. Submitting reviews for every giveaway is key!"   },
         {
-            question: "Can I follow TFI on Social media?",
+            question: "Can I follow TFI on social media?",
             answer: (
               <span>
                 Yes! Follow us on Instagram{" "}

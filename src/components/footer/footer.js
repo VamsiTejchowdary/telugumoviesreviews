@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <p>&copy; 2024 Movie Lovers. All Rights Reserved.</p>
+                <p>&copy; 2024 Movie Lovers. All Rights Reserved</p>
                 <p>Made with ❤️ by TFI Lover</p>
                 <div className="social-icons">
                     <a
@@ -17,7 +17,7 @@ const Footer = () => {
                         aria-label="Instagram"
                         className="social-link"
                     >
-                        <span className="social-text">Follow us on Instagram</span>
+                        <span className="social-text">Follow us on </span>
                         <img
                             src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
                             alt="Instagram"

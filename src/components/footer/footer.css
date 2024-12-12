@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center; /* Center align horizontally */
     gap: 1rem; /* Space between text and icon */
-    margin-top: 1.5rem;
+    margin-top: 0rem;
 }
 
 .social-link {

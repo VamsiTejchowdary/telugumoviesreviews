@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import "./moviereview.css";
+import Footer from "../../components/footer/footer";
 
 const MovieReview = () => {
   const location = useLocation(); // Get location to access state
@@ -202,7 +203,7 @@ const MovieReview = () => {
           ></iframe>
         </div>
       )}
-      
+
       <div className="movie__links">
       {reviewLink ? (
           <a
@@ -236,6 +237,7 @@ const MovieReview = () => {
           </p>
         </a>
       </div>
+      <Footer/>
     </div>
   );
 };

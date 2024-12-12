@@ -16,6 +16,8 @@
 .header__icon {
     width: 80px;
     cursor: pointer;
+    position: relative;
+    left: -35px; /* Adjust the negative value to move left */
 }
 
 a > span {
@@ -36,6 +38,8 @@ a > span:hover {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    position: relative;
+    right: -20px; 
 }
 
 .hamburger .line {
@@ -50,7 +54,7 @@ a > span:hover {
     display: flex;
     flex-direction: row; /* Horizontal for desktop */
     position: absolute;
-    top: 60px;
+    top: 20px;
     right: 20px;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 15px 20px;
