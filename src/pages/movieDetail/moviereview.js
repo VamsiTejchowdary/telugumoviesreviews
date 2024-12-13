@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import "./moviereview.css";
 import Footer from "../../components/footer/footer";
+import CrewList from "../../components/crew/crew";
 
 const MovieReview = () => {
   const location = useLocation(); // Get location to access state
@@ -15,6 +16,7 @@ const MovieReview = () => {
   const [moviereview, setMovieReview] = useState(null); // Initialize review text state
   const [streamingService, setStreamingService] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [crewDetails, setCrewDetails] = useState([]);
 
   const movieLinks = useMemo(
     () => ({
@@ -163,6 +165,17 @@ const MovieReview = () => {
     setRating(movieData.rating || null);
     setMovieReview(movieData.moviereview || null);
     setStreamingService(movieData.streamingOn || null);
+
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=acaba87d72eba033de2058214994a722`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // Get the top 10 important cast members (hero, heroine, etc.)
+        const mainCast = data.cast.slice(0, 20); // You can adjust the number as needed
+        setCrewDetails(mainCast);
+      })
+      .catch((error) => console.error("Error fetching crew details:", error));
   }, [id, currentMovieDetail, movieLinks]);
 
   const getYouTubeEmbedUrl = (url) => {
@@ -242,6 +255,17 @@ const MovieReview = () => {
           </div>
         </div>
       </div>
+
+      {/* CrewList */}
+      <div className="movie__crew">
+        <h3 className="meet-the-crew-heading">Meet the Crew</h3>
+        {crewDetails.length === 0 ? (
+          <p>No available data</p> // Display this message when crewDetails is empty
+        ) : (
+          <CrewList crewDetails={crewDetails} />
+        )}
+      </div>
+
       {/* Embedded Trailer Section */}
       {trailerLink && (
         <div className="movie__trailer">
