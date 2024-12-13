@@ -188,7 +188,79 @@
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
+
+  .streaming__info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  }
   
+  .streaming__logo {
+    height: 80px;
+    width: 130px;
+    align-items: center;
+  }
+  
+  .streaming__info p {
+    margin: 0;
+    font-size: 24px;
+    color: #f3ce13; /* Adjust based on your theme */
+  }
+
+ /* Ensure alignment on one line */
+.movie__feedback {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust spacing between text and icons */
+    gap: 10px; /* Small gap for spacing */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    margin-top: 10px;
+  }
+  
+  .feedback__text {
+    white-space: nowrap; /* Prevent text from wrapping */
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .movie__feedbackIcons {
+    display: flex;
+    gap: 15px; /* Space between thumbs-up and thumbs-down icons */
+  }
+  
+  .movie__feedbackIcons i {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .movie__feedbackIcons i:hover {
+    transform: scale(1.2);
+  }
+  
+  .movie__feedbackIcons .active-feedback {
+    color: #f3ce13; /* Green for thumbs-up */
+  }
+  
+  .movie__feedbackIcons .fa-thumbs-down.active-feedback {
+    color: #ff0000; /* Red for thumbs-down */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 600px) {
+    .feedback__text {
+      font-size: 14px; /* Reduce font size for text */
+    }
+  
+    .movie__feedbackIcons i {
+      font-size: 20px; /* Reduce icon size */
+    }
+  }
+  
+  
+
 @media (min-width: 768px) {
     .movie__links {
         flex-direction: row; /* Side-by-side layout for larger screens */

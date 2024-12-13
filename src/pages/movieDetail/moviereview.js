@@ -13,87 +13,137 @@ const MovieReview = () => {
   const [reviewLink, setReviewLink] = useState(null); // Initialize review link state
   const [rating, setRating] = useState(null); // Initialize rating state
   const [moviereview, setMovieReview] = useState(null); // Initialize review text state
+  const [streamingService, setStreamingService] = useState(null);
+  const [feedback, setFeedback] = useState(null);
 
-  const movieLinks = useMemo(() => ({
-    "857598": {
-    //PUSHPA-2
-    moviereview: "First Half keka, second half good going over all ga rapa rapa.",
-    rating: 7.9,
-    trailerLink: "https://www.youtube.com/watch?v=g3JUbgOHgdw",
-    reviewLink: "https://www.youtube.com/watch?v=C3NeVVa2xUc"
-  },
-  "1390698": {
-    //ZEBRA
-    moviereview: "Satyadev anna kummesada chala baga act chesad enjoyed a lot.",
-    rating: 8.1,
-    trailerLink: "https://www.youtube.com/watch?v=xDfuWMmlS1w",
-    reviewLink: ""
-  },
-  "1102353": {
-    //MECHANIC ROCKY
-    moviereview: "Ok First Half, Excellent Second half with good twists. Vishwak anna agressive tandavamey.",
-    rating: 7.7,
-    trailerLink: "https://www.youtube.com/watch?v=tEBYk7cA8Vk",
-    reviewLink: ""
-  },
-  "1233327": {
-    //MATKA
-    moviereview: "Should be taken better",
-    rating: 5.5,
-    trailerLink: "https://www.youtube.com/watch?v=FKtnAhHnfUo",
-    reviewLink: ""
-  },
-  "1239511": {
-    //LUCKY BHASKAR
-    moviereview: "After a different concept like Sir/Vaathi, Venky Atluri made a movie like Wolf of Wall Street and he succeeded in it. Bound script, tight screenplay, crisp runtime added value to the movie. Actors Dulqer Salman, Meenakshi Choudary did their best and the supporting characters also performed well. Even though some scenes feels like illogical, most of the movie makes sense. The writing and directing part by Venky Atluri outstands. Worth watching.",
-    rating: 8.4,
-    trailerLink: "https://www.youtube.com/watch?v=krdomVobIxE",
-    reviewLink: ""
-  },
-  "1353436": {
-    //KA
-    moviereview: "Story and screenplay dominated acting.",
-    rating: 7.6,
-    trailerLink: "https://www.youtube.com/watch?v=n75xEs-9u1I",
-    reviewLink: ""
-  },
-  "1249902": {
-    //MATHU VADHLARA - 2
-    moviereview: "End to end laguther.",
-    rating: 8.0,
-    trailerLink: "https://www.youtube.com/watch?v=ahZX-ewuZP8",
-    reviewLink: ""
-  },
-  "811941": {
-    //DEVARA
-    moviereview: "Story was ok, NTR screen presence is what I liked the most.",
-    rating: 8.5,
-    trailerLink: "https://www.youtube.com/watch?v=5cx7rvMvAWo&t=3s",
-    reviewLink: ""
-  },
-  "1194915": {
-    //SARIPODHA SANIVARAM
-    moviereview: "Full packed movie for nani, loved the most.",
-    rating: 8.3,
-    trailerLink: "https://www.youtube.com/watch?v=jVEE7mvg8Sc",
-    reviewLink: ""
-  },
-  "801688": {
-    //KALKI
-    moviereview: "I loved entry scene the most and also lucky girl role.",
-    rating: 8.7,
-    trailerLink: "https://www.youtube.com/watch?v=y1-w1kUGuz8",
-    reviewLink: ""
-  },
-  "770906": {
-    //SALAR
-    moviereview: "Netflx lo kanisam week ki 4 times chustanu movie ni, fav movie ever.",
-    rating: 9.0,
-    trailerLink: "https://www.youtube.com/watch?v=4GPvYMKtrtI",
-    reviewLink: ""
-  }
-    // Add more movies here as needed
-  }), []);
+  const movieLinks = useMemo(
+    () => ({
+      857598: {
+        //PUSHPA-2
+        moviereview:
+          "First Half keka, second half good going over all ga rapa rapa.",
+        rating: 7.9,
+        trailerLink: "https://www.youtube.com/watch?v=g3JUbgOHgdw",
+        reviewLink: "https://www.youtube.com/watch?v=C3NeVVa2xUc",
+        streamingOn: "",
+      },
+      1390698: {
+        //ZEBRA
+        moviereview:
+          "Satyadev anna kummesada chala baga act chesad enjoyed a lot.",
+        rating: 8.1,
+        trailerLink: "https://www.youtube.com/watch?v=xDfuWMmlS1w",
+        reviewLink: "",
+        streamingOn: "",
+      },
+      1102353: {
+        //MECHANIC ROCKY
+        moviereview:
+          "Ok First Half, Excellent Second half with good twists. Vishwak anna agressive tandavamey.",
+        rating: 7.7,
+        trailerLink: "https://www.youtube.com/watch?v=tEBYk7cA8Vk",
+        reviewLink: "",
+        streamingOn: "",
+      },
+      1233327: {
+        //MATKA
+        moviereview: "Should be taken better",
+        rating: 5.5,
+        trailerLink: "https://www.youtube.com/watch?v=FKtnAhHnfUo",
+        reviewLink: "https://www.youtube.com/watch?v=JwcB9ZcUIOA",
+        streamingOn: {
+          name: "Prime Video",
+          logo: "/prime_logo.png",
+          url: "https://www.primevideo.com/detail/Matka/0NUKTYDUQO2KYCTJ2RK4CTASXF",
+        },
+      },
+      1239511: {
+        //LUCKY BHASKAR
+        moviereview:
+          "After a different concept like Sir/Vaathi, Venky Atluri made a movie like Wolf of Wall Street and he succeeded in it. Bound script, tight screenplay, crisp runtime added value to the movie. Actors Dulqer Salman, Meenakshi Choudary did their best and the supporting characters also performed well. Even though some scenes feels like illogical, most of the movie makes sense. The writing and directing part by Venky Atluri outstands. Worth watching.",
+        rating: 8.4,
+        trailerLink: "https://www.youtube.com/watch?v=krdomVobIxE",
+        reviewLink: "",
+        streamingOn: {
+          name: "Netflix",
+          logo: "/netflix_logo.png",
+          url: "https://www.netflix.com/title/81902035",
+        },
+      },
+      1353436: {
+        //KA
+        moviereview: "Story and screenplay dominated acting.",
+        rating: 7.6,
+        trailerLink: "https://www.youtube.com/watch?v=n75xEs-9u1I",
+        reviewLink: "",
+        streamingOn: {
+          name: "ETV Win",
+          logo: "/etv_win_logo.png",
+          url: "https://www.etvwin.com/original-movies/ka-with-dolby-vision-and-atmos",
+        },
+      },
+      1249902: {
+        //MATHU VADHLARA - 2
+        moviereview: "End to end laguther.",
+        rating: 8.0,
+        trailerLink: "https://www.youtube.com/watch?v=ahZX-ewuZP8",
+        reviewLink: "",
+        streamingOn: {
+          name: "Netflix",
+          logo: "/netflix_logo.png",
+          url: "https://www.netflix.com/title/81942680",
+        },
+      },
+      811941: {
+        //DEVARA
+        moviereview:
+          "Story was ok, NTR screen presence is what I liked the most.",
+        rating: 8.5,
+        trailerLink: "https://www.youtube.com/watch?v=5cx7rvMvAWo&t=3s",
+        reviewLink: "",
+        streamingOn: {
+          name: "Netflix",
+          logo: "/netflix_logo.png",
+          url: "https://www.netflix.com/title/81728598",
+        },
+      },
+      1194915: {
+        //SARIPODHA SANIVARAM
+        moviereview: "Full packed movie for nani, loved the most.",
+        rating: 8.3,
+        trailerLink: "https://www.youtube.com/watch?v=dkx07ZvjKE4",
+        reviewLink: "",
+        streamingOn: {
+          name: "Netflix",
+          logo: "/netflix_logo.png",
+          url: "https://www.netflix.com/search?q=sarip&jbv=81770422",
+        },
+      },
+      801688: {
+        //KALKI
+        moviereview: "I loved entry scene the most and also lucky girl role.",
+        rating: 8.7,
+        trailerLink: "https://www.youtube.com/watch?v=aninoDcPWo4",
+        reviewLink: "",
+        streamingOn: {
+          name: "Prime Video",
+          logo: "/prime_logo.png",
+          url: "https://www.amazon.com/Kalki-2898-AD-Nag-Ashwin/dp/B0DC74WPTT",
+        },
+      },
+      770906: {
+        //SALAR
+        moviereview:
+          "Netflx lo kanisam week ki 4 times chustanu movie ni, fav movie ever.",
+        rating: 9.0,
+        trailerLink: "https://www.youtube.com/watch?v=4GPvYMKtrtI",
+        reviewLink: "",
+        streamingOn: { name: "Prime Video", logo: "/logos/prime-video.png" },
+      },
+      // Add more movies here as needed
+    }),
+    []
+  );
 
   useEffect(() => {
     if (!currentMovieDetail) {
@@ -112,6 +162,7 @@ const MovieReview = () => {
     setReviewLink(movieData.reviewLink || null);
     setRating(movieData.rating || null);
     setMovieReview(movieData.moviereview || null);
+    setStreamingService(movieData.streamingOn || null);
   }, [id, currentMovieDetail, movieLinks]);
 
   const getYouTubeEmbedUrl = (url) => {
@@ -191,7 +242,6 @@ const MovieReview = () => {
           </div>
         </div>
       </div>
-
       {/* Embedded Trailer Section */}
       {trailerLink && (
         <div className="movie__trailer">
@@ -203,9 +253,8 @@ const MovieReview = () => {
           ></iframe>
         </div>
       )}
-
       <div className="movie__links">
-      {reviewLink ? (
+        {reviewLink ? (
           <a
             href={reviewLink}
             target="_blank"
@@ -214,7 +263,8 @@ const MovieReview = () => {
           >
             <p>
               <span className="youtubereview_button youtube_review__button">
-                Public Review <i className="newTab fas fa-external-link-alt"></i>
+                Public Review{" "}
+                <i className="newTab fas fa-external-link-alt"></i>
               </span>
             </p>
           </a>
@@ -223,7 +273,51 @@ const MovieReview = () => {
         )}
       </div>
 
-      
+      {/* Streaming Information Section */}
+      <div className="streaming__info">
+        {streamingService ? (
+          <>
+            <p>
+              <strong>Streaming on:</strong>
+            </p>
+            <a
+              href={streamingService.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={streamingService.logo}
+                alt={`${streamingService.name} logo`}
+                className="streaming__logo"
+              />
+            </a>
+          </>
+        ) : (
+          <p>
+            <strong>Streaming on:</strong> Not on OTT
+          </p>
+        )}
+      </div>
+      <div className="movie__feedback">
+        <p className="feedback__text">
+          Have you watched the movie? Did you enjoy it?
+        </p>
+        <div className="movie__feedbackIcons">
+          <i
+            className={`fas fa-thumbs-up ${
+              feedback === "up" ? "active-feedback" : ""
+            }`}
+            onClick={() => setFeedback("up")}
+          ></i>
+          <i
+            className={`fas fa-thumbs-down ${
+              feedback === "down" ? "active-feedback" : ""
+            }`}
+            onClick={() => setFeedback("down")}
+          ></i>
+        </div>
+      </div>
+
       <div className="movie__links">
         <div className="movie__heading">GET FREE TICKETS</div>
         <a
@@ -237,7 +331,7 @@ const MovieReview = () => {
           </p>
         </a>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
