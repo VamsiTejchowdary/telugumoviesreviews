@@ -100,7 +100,7 @@ const MovieReview = () => {
         //DEVARA
         moviereview:
           "Story was ok, NTR screen presence is what I liked the most.",
-        rating: 8.5,
+        rating: 7.8,
         trailerLink: "https://www.youtube.com/watch?v=5cx7rvMvAWo&t=3s",
         reviewLink: "",
         streamingOn: {

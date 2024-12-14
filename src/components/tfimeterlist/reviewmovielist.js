@@ -20,7 +20,7 @@ const ReviewsmovieList = () => {
         { id: 1239511, rating:8.4 }, // Lucky Bhaskar
         { id: 1353436, rating:7.6 }, // KA
         { id: 1249902, rating:8 }, // Mathu Vadhalara-2
-        { id: 811941,  rating:8.5 },  // Devara × TAKARAZUKA
+        { id: 811941,  rating:7.8 },  // Devara × TAKARAZUKA
         { id: 1194915, rating:8.3}, // Saripodha Sanivaram
         { id: 801688,  rating:8.6 },  // Kalki
         { id: 770906,  rating:9 },  // Salaar
