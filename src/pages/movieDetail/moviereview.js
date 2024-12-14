@@ -185,7 +185,7 @@ const MovieReview = () => {
 
   return (
     <div className="movie">
-      <div className="movie__intro">
+      {/* <div className="movie__intro">
         <img
           className="movie__backdrop"
           src={
@@ -195,7 +195,7 @@ const MovieReview = () => {
           }
           alt="Movie Backdrop"
         />
-      </div>
+      </div> */}
       <div className="movie__detail">
         <div className="movie__detailLeft">
           <div className="movie__posterBox">
@@ -258,7 +258,7 @@ const MovieReview = () => {
 
       {/* CrewList */}
       <div className="movie__crew">
-        <h3 className="meet-the-crew-heading">Meet the Crew</h3>
+        <h3 className="meet-the-crew-heading">Movie Cast</h3>
         {crewDetails.length === 0 ? (
           <p>No available data</p> // Display this message when crewDetails is empty
         ) : (

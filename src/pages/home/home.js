@@ -32,6 +32,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const trailerContainerRef = useRef(null);
+  const [isTextVisible, setIsTextVisible] = useState(false);
   const getYouTubeEmbedUrl = (url) => {
     const urlParams = new URL(url).searchParams;
     return `https://www.youtube.com/embed/${urlParams.get("v")}`;
@@ -51,6 +52,15 @@ const Home = () => {
         setError("Failed to load movies.");
         setIsLoading(false);
       }
+
+      const timer = setTimeout(() => {
+        setIsTextVisible(true);
+        setTimeout(() => {
+          setIsTextVisible(false);
+        }, 6000);
+      }, 0);
+      return () => clearTimeout(timer);
+
     };
 
     fetchRecentMovies();
@@ -67,6 +77,20 @@ const Home = () => {
   return (
     <>
       <div className="poster">
+      {isTextVisible && (
+            <div className="review-prompt">
+              <p>
+                Submit your recent movie review and get tickets for{" "}
+                <strong>upcoming releases</strong>{" "}
+                <Link
+                  to="/movies/reviewform"
+                  style={{ textDecoration: "none", color: "#ffffff;" }}
+                >
+                  Review Form
+                </Link>
+              </p>
+            </div>
+          )}
         <Carousel
           showThumbs={false}
           autoPlay={true}
