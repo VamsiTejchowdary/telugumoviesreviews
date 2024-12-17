@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center; /* Center-align the content */
-    gap: 1rem; /* Space between the title and the cards */
+    gap: 3rem; /* Space between the title and the cards */
 }
 
 .list__title {
@@ -19,7 +19,7 @@
     display: flex;
     flex-wrap: wrap; /* Allow wrapping for cards on smaller screens */
     justify-content: center; /* Center-align the cards */
-    gap: 1.5rem; /* Space between cards */
+    gap: 0.2rem; /* Space between cards */
 }
 
 /* Style individual cards if needed (overridable by Cards component styles) */

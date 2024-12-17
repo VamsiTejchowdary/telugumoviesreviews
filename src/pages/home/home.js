@@ -60,7 +60,6 @@ const Home = () => {
         }, 6000);
       }, 0);
       return () => clearTimeout(timer);
-
     };
 
     fetchRecentMovies();
@@ -77,20 +76,20 @@ const Home = () => {
   return (
     <>
       <div className="poster">
-      {isTextVisible && (
-            <div className="review-prompt">
-              <p>
-                Submit your recent movie review and get tickets for{" "}
-                <strong>upcoming releases</strong>{" "}
-                <Link
-                  to="/movies/reviewform"
-                  style={{ textDecoration: "none", color: "#ffffff;" }}
-                >
-                  Review Form
-                </Link>
-              </p>
-            </div>
-          )}
+        {isTextVisible && (
+          <div className="review-prompt">
+            <p>
+              Submit your recent movie review and get tickets for{" "}
+              <strong>upcoming releases</strong>{" "}
+              <Link
+                to="/movies/reviewform"
+                style={{ textDecoration: "none", color: "#ffffff;" }}
+              >
+                Review Form
+              </Link>
+            </p>
+          </div>
+        )}
         <Carousel
           showThumbs={false}
           autoPlay={true}
@@ -99,43 +98,41 @@ const Home = () => {
           showStatus={false}
         >
           {recentMovies.map((movie) => (
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`/movie/${movie.id}`}
-              key={movie.id}
-            >
-              <div className="posterImage">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
-                  alt={movie.original_title}
-                />
-              </div>
+            <div key={movie.id} className="posterImage">
+              <img
+                src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
+                alt={movie.original_title}
+              />
               <div className="posterImage__overlay">
-                <div className="posterImage__title">{movie?.original_title}</div>
+                <div className="posterImage__title">
+                  {movie?.original_title}
+                </div>
                 <div className="posterImage__runtime">
                   Released on: {movie?.release_date}
                 </div>
-                <div className="posterImage__description">{movie?.overview}</div>
+                <div className="posterImage__description">
+                  {movie?.overview}
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </Carousel>
         <div className="trailers">
-        <h2> Upcoming Release Trailers</h2>
-        <div className="trailers-container" ref={trailerContainerRef}>
-          {trailers.map((trailer, index) => (
-            <div key={index} className="trailer-item">
-              <iframe
-                className="trailer-video"
-                src={getYouTubeEmbedUrl(trailer.videoUrl)}
-                title={trailer.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          ))}
+          <h2> Upcoming Release Trailers</h2>
+          <div className="trailers-container" ref={trailerContainerRef}>
+            {trailers.map((trailer, index) => (
+              <div key={index} className="trailer-item">
+                <iframe
+                  className="trailer-video"
+                  src={getYouTubeEmbedUrl(trailer.videoUrl)}
+                  title={trailer.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
         <TFI recentMovies={recentMovies} />
       </div>
     </>

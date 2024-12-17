@@ -140,7 +140,16 @@ const MovieReview = () => {
         rating: 9.0,
         trailerLink: "https://www.youtube.com/watch?v=4GPvYMKtrtI",
         reviewLink: "",
-        streamingOn: { name: "Prime Video", logo: "/logos/prime-video.png" },
+        streamingOn: { name: "Netflix", logo: "/netflix_logo.png", url:"https://www.netflix.com/search?q=sala&jbv=81727155" },
+      },
+      1232219: {
+        //Mr.Bachan
+        moviereview:
+          "Enti bro ravi anna tesey cinemala asluu.",
+        rating: 5.2,
+        trailerLink: "https://www.youtube.com/watch?v=BZefBM0Bwdc",
+        reviewLink: "",
+        streamingOn: { name: "Netflix", logo: "/netflix_logo.png", url:"https://www.netflix.com/search?q=mr%20&jbv=81918754" },
       },
       // Add more movies here as needed
     }),
