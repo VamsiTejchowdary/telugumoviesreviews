@@ -20,6 +20,16 @@ const MovieReview = () => {
 
   const movieLinks = useMemo(
     () => ({
+      1399790: {
+        //BACHALLA MALLI
+        moviereview:
+          "Naresh anna acting tapha em led anna cinema loo.",
+        rating: 6.1,
+        trailerLink: "https://www.youtube.com/watch?v=aggB9HZItzg",
+        reviewLink: "https://www.youtube.com/watch?v=_yCo-hHCjfE",
+        streamingOn: "",
+      },
+
       857598: {
         //PUSHPA-2
         moviereview:
