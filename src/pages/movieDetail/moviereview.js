@@ -45,7 +45,7 @@ const MovieReview = () => {
           "Satyadev anna kummesada chala baga act chesad enjoyed a lot.",
         rating: 8.1,
         trailerLink: "https://www.youtube.com/watch?v=xDfuWMmlS1w",
-        reviewLink: "",
+        reviewLink: "https://www.youtube.com/watch?v=R31XDoAGXSg",
         streamingOn: {
           name: "AHA VIDEO",
           logo: "/Aha_logo.png",
@@ -58,8 +58,12 @@ const MovieReview = () => {
           "Ok First Half, Excellent Second half with good twists. Vishwak anna agressive tandavamey.",
         rating: 7.7,
         trailerLink: "https://www.youtube.com/watch?v=tEBYk7cA8Vk",
-        reviewLink: "",
-        streamingOn: "",
+        reviewLink: "https://www.youtube.com/watch?v=ltDcabArSkQ",
+        streamingOn: {
+          name: "Prime Video",
+          logo: "/prime_logo.png",
+          url: "https://www.primevideo.com/detail/Mechanic-Rocky/0J8V0T4BPV421OT6Y3TWO4P0TJ",
+        },
       },
       1233327: {
         //MATKA
@@ -79,7 +83,7 @@ const MovieReview = () => {
           "After a different concept like Sir/Vaathi, Venky Atluri made a movie like Wolf of Wall Street and he succeeded in it. Bound script, tight screenplay, crisp runtime added value to the movie. Actors Dulqer Salman, Meenakshi Choudary did their best and the supporting characters also performed well. Even though some scenes feels like illogical, most of the movie makes sense. The writing and directing part by Venky Atluri outstands. Worth watching.",
         rating: 8.4,
         trailerLink: "https://www.youtube.com/watch?v=krdomVobIxE",
-        reviewLink: "",
+        reviewLink: "https://www.youtube.com/watch?v=j3w37GPSHhE",
         streamingOn: {
           name: "Netflix",
           logo: "/netflix_logo.png",
@@ -91,7 +95,7 @@ const MovieReview = () => {
         moviereview: "Story and screenplay dominated acting.",
         rating: 7.6,
         trailerLink: "https://www.youtube.com/watch?v=n75xEs-9u1I",
-        reviewLink: "",
+        reviewLink: "https://www.youtube.com/watch?v=7T3x77fPaX4",
         streamingOn: {
           name: "ETV Win",
           logo: "/etv_win_logo.png",
@@ -103,7 +107,7 @@ const MovieReview = () => {
         moviereview: "End to end laguther.",
         rating: 8.0,
         trailerLink: "https://www.youtube.com/watch?v=ahZX-ewuZP8",
-        reviewLink: "",
+        reviewLink: "https://www.youtube.com/watch?v=hklfS3ep-zU",
         streamingOn: {
           name: "Netflix",
           logo: "/netflix_logo.png",

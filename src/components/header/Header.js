@@ -13,7 +13,7 @@ const Header = () => {
     message: "",
   });
   const [statusMessage, setStatusMessage] = useState("");
-  const [isRotating, setIsRotating] = useState(false); // Track rotation state
+  //const [isRotating, setIsRotating] = useState(false); // Track rotation state
   //const [isLotteryPopupOpen, setIsLotteryPopupOpen] = useState(false); // Lottery popup state
 
   // Show the lottery popup after 3 seconds
@@ -84,10 +84,10 @@ const Header = () => {
     }
   };
 
-  const handleLogoClick = () => {
-    setIsRotating(true);
-    setTimeout(() => setIsRotating(false), 1000); // Reset rotation after animation
-  };
+  // const handleLogoClick = () => {
+  //   setIsRotating(true);
+  //   setTimeout(() => setIsRotating(false), 1000); // Reset rotation after animation
+  // };
 
   
 
@@ -98,9 +98,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="headerLeft">
-        <Link to="/" onClick={handleLogoClick}>
+        <Link to="/" >
           <img
-            className={`header__icon ${isRotating ? "rotating" : ""}`}
+            className="header__icon"
             src="/finaltfilogo.png"
             alt="Logo"
           />
