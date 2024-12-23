@@ -1,7 +1,7 @@
 /* General Styles */
 .poster {
-    margin-top: 100px; /* Adding margin top to ensure space for header */
-    width: 98%; /* Reduce width slightly for a cleaner look */
+    margin-top: 10px; /* Adding margin top to ensure space for header */
+    width: 100%; /* Reduce width slightly for a cleaner look */
     margin-left: auto; /* Align to the center if needed */
     margin-right: auto;
     border-radius: 10px; /* Add rounded corners for a modern look */
@@ -10,7 +10,7 @@
 }
 
 .posterImage {
-    height: 450px; /* Slightly increased height for better visuals */
+    height: 630px; /* Slightly increased height for better visuals */
     position: relative;
     border-radius: 10px; /* Match carousel’s rounded corners */
 }

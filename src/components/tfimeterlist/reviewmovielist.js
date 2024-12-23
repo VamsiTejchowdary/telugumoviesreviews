@@ -9,10 +9,11 @@ const ReviewsmovieList = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       const movies = [];
-      const limit = 10; // Limit the number of movie cards displayed
+      const limit = 12; // Limit the number of movie cards displayed
   
       // Hardcoded movie IDs and ratings
       const movieData = [
+        {id:1399790, rating:6.1}, //Bachalla malli
         { id: 857598,  rating:7.9}, //Pushpa-2
         { id: 1390698, rating:8.1 }, //Zebra
         { id: 1102353, rating:7.7 }, //Mechanic Rocky
@@ -20,10 +21,11 @@ const ReviewsmovieList = () => {
         { id: 1239511, rating:8.4 }, // Lucky Bhaskar
         { id: 1353436, rating:7.6 }, // KA
         { id: 1249902, rating:8 }, // Mathu Vadhalara-2
-        { id: 811941,  rating:8.5 },  // Devara × TAKARAZUKA
+        { id: 811941,  rating:7.8 },  // Devara × TAKARAZUKA
         { id: 1194915, rating:8.3}, // Saripodha Sanivaram
         { id: 801688,  rating:8.6 },  // Kalki
         { id: 770906,  rating:9 },  // Salaar
+        { id: 1232219,  rating:5.2 },  // Mr.Bachan
       ];
   
       for (let i = 0; i < Math.min(movieData.length, limit); i++) {

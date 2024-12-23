@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    height: 70px;
 }
 
 .headerLeft {
@@ -202,6 +203,10 @@ a > span:hover {
 /* Responsive Styles */
 @media (max-width: 768px) {
     /* For mobile view, hide the menu and display hamburger */
+   .header{
+    height: 70px;
+   }
+    
     .menu {
         display: none;
         flex-direction: column; /* Stack items vertically */

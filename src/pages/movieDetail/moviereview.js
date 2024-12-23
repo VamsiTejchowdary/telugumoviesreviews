@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import "./moviereview.css";
 import Footer from "../../components/footer/footer";
 import CrewList from "../../components/crew/crew";
+import SponsoredPopup from "../../components/sponsoredpopup/sponsoredpopup";
 
 const MovieReview = () => {
   const location = useLocation(); // Get location to access state
@@ -17,9 +18,20 @@ const MovieReview = () => {
   const [streamingService, setStreamingService] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [crewDetails, setCrewDetails] = useState([]);
+  const [isAdsPopupVisible, setIsAdsPopupVisible] = useState(false);
 
   const movieLinks = useMemo(
     () => ({
+      1399790: {
+        //BACHALLA MALLI
+        moviereview:
+          "Naresh anna acting tapha em led anna cinema loo.",
+        rating: 6.1,
+        trailerLink: "https://www.youtube.com/watch?v=aggB9HZItzg",
+        reviewLink: "https://www.youtube.com/watch?v=_yCo-hHCjfE",
+        streamingOn: "",
+      },
+
       857598: {
         //PUSHPA-2
         moviereview:
@@ -35,8 +47,12 @@ const MovieReview = () => {
           "Satyadev anna kummesada chala baga act chesad enjoyed a lot.",
         rating: 8.1,
         trailerLink: "https://www.youtube.com/watch?v=xDfuWMmlS1w",
-        reviewLink: "",
-        streamingOn: "",
+        reviewLink: "https://www.youtube.com/watch?v=R31XDoAGXSg",
+        streamingOn: {
+          name: "AHA VIDEO",
+          logo: "/Aha_logo.png",
+          url: "https://www.aha.video/movie/zebra",
+        },
       },
       1102353: {
         //MECHANIC ROCKY
@@ -44,8 +60,12 @@ const MovieReview = () => {
           "Ok First Half, Excellent Second half with good twists. Vishwak anna agressive tandavamey.",
         rating: 7.7,
         trailerLink: "https://www.youtube.com/watch?v=tEBYk7cA8Vk",
-        reviewLink: "",
-        streamingOn: "",
+        reviewLink: "https://www.youtube.com/watch?v=ltDcabArSkQ",
+        streamingOn: {
+          name: "Prime Video",
+          logo: "/prime_logo.png",
+          url: "https://www.primevideo.com/detail/Mechanic-Rocky/0J8V0T4BPV421OT6Y3TWO4P0TJ",
+        },
       },
       1233327: {
         //MATKA
@@ -65,7 +85,7 @@ const MovieReview = () => {
           "After a different concept like Sir/Vaathi, Venky Atluri made a movie like Wolf of Wall Street and he succeeded in it. Bound script, tight screenplay, crisp runtime added value to the movie. Actors Dulqer Salman, Meenakshi Choudary did their best and the supporting characters also performed well. Even though some scenes feels like illogical, most of the movie makes sense. The writing and directing part by Venky Atluri outstands. Worth watching.",
         rating: 8.4,
         trailerLink: "https://www.youtube.com/watch?v=krdomVobIxE",
-        reviewLink: "",
+        reviewLink: "https://www.youtube.com/watch?v=j3w37GPSHhE",
         streamingOn: {
           name: "Netflix",
           logo: "/netflix_logo.png",
@@ -77,7 +97,7 @@ const MovieReview = () => {
         moviereview: "Story and screenplay dominated acting.",
         rating: 7.6,
         trailerLink: "https://www.youtube.com/watch?v=n75xEs-9u1I",
-        reviewLink: "",
+        reviewLink: "https://www.youtube.com/watch?v=7T3x77fPaX4",
         streamingOn: {
           name: "ETV Win",
           logo: "/etv_win_logo.png",
@@ -89,7 +109,7 @@ const MovieReview = () => {
         moviereview: "End to end laguther.",
         rating: 8.0,
         trailerLink: "https://www.youtube.com/watch?v=ahZX-ewuZP8",
-        reviewLink: "",
+        reviewLink: "https://www.youtube.com/watch?v=hklfS3ep-zU",
         streamingOn: {
           name: "Netflix",
           logo: "/netflix_logo.png",
@@ -100,7 +120,7 @@ const MovieReview = () => {
         //DEVARA
         moviereview:
           "Story was ok, NTR screen presence is what I liked the most.",
-        rating: 8.5,
+        rating: 7.8,
         trailerLink: "https://www.youtube.com/watch?v=5cx7rvMvAWo&t=3s",
         reviewLink: "",
         streamingOn: {
@@ -140,7 +160,16 @@ const MovieReview = () => {
         rating: 9.0,
         trailerLink: "https://www.youtube.com/watch?v=4GPvYMKtrtI",
         reviewLink: "",
-        streamingOn: { name: "Prime Video", logo: "/logos/prime-video.png" },
+        streamingOn: { name: "Netflix", logo: "/netflix_logo.png", url:"https://www.netflix.com/search?q=sala&jbv=81727155" },
+      },
+      1232219: {
+        //Mr.Bachan
+        moviereview:
+          "Enti bro ravi anna tesey cinemala asluu.",
+        rating: 5.2,
+        trailerLink: "https://www.youtube.com/watch?v=BZefBM0Bwdc",
+        reviewLink: "",
+        streamingOn: { name: "Netflix", logo: "/netflix_logo.png", url:"https://www.netflix.com/search?q=mr%20&jbv=81918754" },
       },
       // Add more movies here as needed
     }),
@@ -176,6 +205,17 @@ const MovieReview = () => {
         setCrewDetails(mainCast);
       })
       .catch((error) => console.error("Error fetching crew details:", error));
+
+      
+   //Ads TImer
+    const Adstimer = setTimeout(() => {
+      setIsAdsPopupVisible(true);
+      setTimeout(() => {
+        setIsAdsPopupVisible(false);
+      }, 6000);
+    }, 0);
+    return () => clearTimeout(Adstimer);
+
   }, [id, currentMovieDetail, movieLinks]);
 
   const getYouTubeEmbedUrl = (url) => {
@@ -265,6 +305,14 @@ const MovieReview = () => {
           <CrewList crewDetails={crewDetails} />
         )}
       </div>
+
+      {/* Sponsored popup */}
+
+      {isAdsPopupVisible && (
+        <SponsoredPopup
+          onClose={() => setIsAdsPopupVisible(false)}
+        />
+      )}
 
       {/* Embedded Trailer Section */}
       {trailerLink && (

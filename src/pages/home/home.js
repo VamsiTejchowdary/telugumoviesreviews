@@ -9,25 +9,25 @@ const Home = () => {
   const [recentMovies, setRecentMovies] = useState([]);
   const [trailers] = useState([
     {
-      title: "ROBIN HOOD",
-      videoUrl: "https://www.youtube.com/watch?v=B8XMLMz0pvk",
-    },
-    {
-      title: "MUfASA",
-      videoUrl: "https://www.youtube.com/watch?v=CDgOcSh9hKM",
-    },
-    {
-      title: "UI",
-      videoUrl: "https://www.youtube.com/watch?v=Za0yA0j-DK8",
-    },
-    {
-      title: "VIDUTHALAI-2",
-      videoUrl: "https://www.youtube.com/watch?v=HOxXrrwa_8o",
+      title: "BABY JOHN",
+      videoUrl: "https://www.youtube.com/watch?v=qyRn3rPRw8w",
     },
     {
       title: "BAROZ",
-      videoUrl: "https://www.youtube.com/watch?v=tQ_VDT2eNWk",
+      videoUrl: "https://www.youtube.com/watch?v=zRC5V5ANaag",
     },
+    {
+      title: "MAX",
+      videoUrl: "https://www.youtube.com/watch?v=2M2e6W09FC8",
+    },
+    {
+      title: "GAMECHANGER",
+      videoUrl: "https://www.youtube.com/watch?v=OXe7N7-xMKM",
+    },
+    {
+      title: "DAKUMAHARAJ",
+      videoUrl: "https://www.youtube.com/watch?v=teN0JZ67KZU",
+    }
   ]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -60,7 +60,6 @@ const Home = () => {
         }, 6000);
       }, 0);
       return () => clearTimeout(timer);
-
     };
 
     fetchRecentMovies();
@@ -77,20 +76,20 @@ const Home = () => {
   return (
     <>
       <div className="poster">
-      {isTextVisible && (
-            <div className="review-prompt">
-              <p>
-                Submit your recent movie review and get tickets for{" "}
-                <strong>upcoming releases</strong>{" "}
-                <Link
-                  to="/movies/reviewform"
-                  style={{ textDecoration: "none", color: "#ffffff;" }}
-                >
-                  Review Form
-                </Link>
-              </p>
-            </div>
-          )}
+        {isTextVisible && (
+          <div className="review-prompt">
+            <p>
+              Submit your recent movie review and get tickets for{" "}
+              <strong>upcoming releases</strong>{" "}
+              <Link
+                to="/movies/reviewform"
+                style={{ textDecoration: "none", color: "#ffffff;" }}
+              >
+                Review Form
+              </Link>
+            </p>
+          </div>
+        )}
         <Carousel
           showThumbs={false}
           autoPlay={true}
@@ -99,43 +98,41 @@ const Home = () => {
           showStatus={false}
         >
           {recentMovies.map((movie) => (
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`/movie/${movie.id}`}
-              key={movie.id}
-            >
-              <div className="posterImage">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
-                  alt={movie.original_title}
-                />
-              </div>
+            <div key={movie.id} className="posterImage">
+              <img
+                src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
+                alt={movie.original_title}
+              />
               <div className="posterImage__overlay">
-                <div className="posterImage__title">{movie?.original_title}</div>
+                <div className="posterImage__title">
+                  {movie?.original_title}
+                </div>
                 <div className="posterImage__runtime">
                   Released on: {movie?.release_date}
                 </div>
-                <div className="posterImage__description">{movie?.overview}</div>
+                <div className="posterImage__description">
+                  {movie?.overview}
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </Carousel>
         <div className="trailers">
-        <h2> Upcoming Release Trailers</h2>
-        <div className="trailers-container" ref={trailerContainerRef}>
-          {trailers.map((trailer, index) => (
-            <div key={index} className="trailer-item">
-              <iframe
-                className="trailer-video"
-                src={getYouTubeEmbedUrl(trailer.videoUrl)}
-                title={trailer.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          ))}
+          <h2> Upcoming Release Trailers</h2>
+          <div className="trailers-container" ref={trailerContainerRef}>
+            {trailers.map((trailer, index) => (
+              <div key={index} className="trailer-item">
+                <iframe
+                  className="trailer-video"
+                  src={getYouTubeEmbedUrl(trailer.videoUrl)}
+                  title={trailer.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
         <TFI recentMovies={recentMovies} />
       </div>
     </>
