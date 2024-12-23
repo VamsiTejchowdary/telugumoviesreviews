@@ -308,11 +308,11 @@ const MovieReview = () => {
 
       {/* Sponsored popup */}
 
-      {isAdsPopupVisible && (
+      {/* {isAdsPopupVisible && (
         <SponsoredPopup
           onClose={() => setIsAdsPopupVisible(false)}
         />
-      )}
+      )} */}
 
       {/* Embedded Trailer Section */}
       {trailerLink && (
