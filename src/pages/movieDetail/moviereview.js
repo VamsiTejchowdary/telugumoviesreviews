@@ -46,7 +46,11 @@ const MovieReview = () => {
         rating: 8.1,
         trailerLink: "https://www.youtube.com/watch?v=xDfuWMmlS1w",
         reviewLink: "",
-        streamingOn: "",
+        streamingOn: {
+          name: "AHA VIDEO",
+          logo: "/Aha_logo.png",
+          url: "https://www.aha.video/movie/zebra",
+        },
       },
       1102353: {
         //MECHANIC ROCKY
