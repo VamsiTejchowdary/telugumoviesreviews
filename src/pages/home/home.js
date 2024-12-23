@@ -45,7 +45,10 @@ const Home = () => {
           `https://api.themoviedb.org/3/discover/movie?api_key=acaba87d72eba033de2058214994a722&with_original_language=te&sort_by=release_date.desc&vote_average.gte=5&page=1`
         );
         const data = await response.json();
-        setRecentMovies(data.results.slice(0, 8));
+        
+        // Filter out movies without a backdrop_path
+        const filteredMovies = data.results.filter((movie) => movie.backdrop_path);
+        setRecentMovies(filteredMovies.slice(0, 8));
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching recent Telugu movies:", error);
