@@ -3,7 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import "./moviereview.css";
 import Footer from "../../components/footer/footer";
 import CrewList from "../../components/crew/crew";
-import SponsoredPopup from "../../components/sponsoredpopup/sponsoredpopup";
+//import SponsoredPopup from "../../components/sponsoredpopup/sponsoredpopup";
 
 const MovieReview = () => {
   const location = useLocation(); // Get location to access state
@@ -18,7 +18,7 @@ const MovieReview = () => {
   const [streamingService, setStreamingService] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [crewDetails, setCrewDetails] = useState([]);
-  const [isAdsPopupVisible, setIsAdsPopupVisible] = useState(false);
+ //const [isAdsPopupVisible, setIsAdsPopupVisible] = useState(false);
 
   const movieLinks = useMemo(
     () => ({
@@ -208,13 +208,13 @@ const MovieReview = () => {
 
       
    //Ads TImer
-    const Adstimer = setTimeout(() => {
-      setIsAdsPopupVisible(true);
-      setTimeout(() => {
-        setIsAdsPopupVisible(false);
-      }, 6000);
-    }, 0);
-    return () => clearTimeout(Adstimer);
+    // const Adstimer = setTimeout(() => {
+    //   setIsAdsPopupVisible(true);
+    //   setTimeout(() => {
+    //     setIsAdsPopupVisible(false);
+    //   }, 6000);
+    // }, 0);
+    // return () => clearTimeout(Adstimer);
 
   }, [id, currentMovieDetail, movieLinks]);
 
