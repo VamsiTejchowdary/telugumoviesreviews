@@ -15,7 +15,7 @@ const ReviewsmovieList = () => {
       const movieData = [
         {id:1399790, rating:6.1}, //Bachalla malli
         { id: 857598,  rating:7.9}, //Pushpa-2
-        { id: 1390698, rating:8.1 }, //Zebra
+        { id: 1035998, rating:8.1 }, //Zebra
         { id: 1102353, rating:7.7 }, //Mechanic Rocky
         { id: 1233327, rating:5.5 }, // Matka
         { id: 1239511, rating:8.4 }, // Lucky Bhaskar

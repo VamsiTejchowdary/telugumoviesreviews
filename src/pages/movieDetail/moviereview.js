@@ -41,7 +41,7 @@ const MovieReview = () => {
         reviewLink: "https://www.youtube.com/watch?v=C3NeVVa2xUc",
         streamingOn: "",
       },
-      1390698: {
+      1035998: {
         //ZEBRA
         moviereview:
           "Satyadev anna kummesada chala baga act chesad enjoyed a lot.",
