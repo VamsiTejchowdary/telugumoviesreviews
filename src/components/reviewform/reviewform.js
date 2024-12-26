@@ -9,6 +9,7 @@ const ReviewForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    location: "",
     moviename: "",
     review: "",
     instaid: "",
@@ -48,6 +49,7 @@ const ReviewForm = () => {
       user_name: formData.name,
       user_email: formData.email,
       moviename: formData.moviename,
+      location: formData.location,
       rating: rating,
       review: formData.review,
       instaid: formData.instaid,
@@ -68,6 +70,7 @@ const ReviewForm = () => {
         await addDoc(collection(db, "review"), {
           name: formData.name ,
           email: formData.email,
+          location: formData.location,
           moviename: formData.moviename,
           moviereview: formData.review ,
           instaid: formData.instaid,
@@ -87,6 +90,7 @@ const ReviewForm = () => {
           moviename: "",
           review: "",
           instaid: "",
+          loaction:"",
         });
         setRating(0);
       } else {
@@ -155,6 +159,14 @@ const ReviewForm = () => {
             onChange={handleChange}
             placeholder={isTelugu ? "మీ ఇమెయిల్" : "Your Email"}
             required
+            className="review-input"
+          />
+          <input
+            type="location"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            placeholder={isTelugu ? "మీ ప్రదేశం" : "Your Location"}
             className="review-input"
           />
           <input
