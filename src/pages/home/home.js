@@ -9,24 +9,12 @@ const Home = () => {
   const [recentMovies, setRecentMovies] = useState([]);
   const [trailers] = useState([
     {
-      title: "BABY JOHN",
-      videoUrl: "https://www.youtube.com/watch?v=qyRn3rPRw8w",
-    },
-    {
-      title: "BAROZ",
-      videoUrl: "https://www.youtube.com/watch?v=zRC5V5ANaag",
-    },
-    {
-      title: "MAX",
-      videoUrl: "https://www.youtube.com/watch?v=2M2e6W09FC8",
-    },
-    {
       title: "GAMECHANGER",
-      videoUrl: "https://www.youtube.com/watch?v=OXe7N7-xMKM",
+      videoUrl: "https://www.youtube.com/watch?v=zHiKFSBO_JE",
     },
     {
       title: "DAKUMAHARAJ",
-      videoUrl: "https://www.youtube.com/watch?v=teN0JZ67KZU",
+      videoUrl: "https://www.youtube.com/watch?v=LNp4XDHrhhk",
     }
   ]);
   const [isLoading, setIsLoading] = useState(true);
