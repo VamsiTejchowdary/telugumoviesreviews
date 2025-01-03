@@ -14,7 +14,7 @@ const Home = () => {
     },
     {
       title: "DAKUMAHARAJ",
-      videoUrl: "https://www.youtube.com/watch?v=LNp4XDHrhhk",
+      videoUrl: "https://www.youtube.com/watch?v=teN0JZ67KZU",
     }
   ]);
   const [isLoading, setIsLoading] = useState(true);
