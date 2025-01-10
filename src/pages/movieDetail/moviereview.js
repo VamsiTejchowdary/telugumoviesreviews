@@ -22,6 +22,16 @@ const MovieReview = () => {
 
   const movieLinks = useMemo(
     () => ({
+      811944: {
+        //GAMECHANGER
+        moviereview:
+          "One time watch movie, BGM bagundhi.",
+        rating: 7.4,
+        trailerLink: "https://www.youtube.com/watch?v=zHiKFSBO_JE&t=4s",
+        reviewLink: "https://www.youtube.com/watch?v=reuUgjM8vjY",
+        streamingOn: "",
+      },
+
       1399790: {
         //BACHALLA MALLI
         moviereview:

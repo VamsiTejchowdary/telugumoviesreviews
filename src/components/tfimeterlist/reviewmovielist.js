@@ -13,6 +13,7 @@ const ReviewsmovieList = () => {
   
       // Hardcoded movie IDs and ratings
       const movieData = [
+        {id:811944, rating:7.4}, //GAME CHANGER
         {id:1399790, rating:6.1}, //Bachalla malli
         { id: 857598,  rating:7.9}, //Pushpa-2
         { id: 1035998, rating:8.1 }, //Zebra
