@@ -15,6 +15,10 @@ const Home = () => {
     {
       title: "DAKUMAHARAJ",
       videoUrl: "https://www.youtube.com/watch?v=teN0JZ67KZU",
+    },
+    {
+      title: "Sankranthi ki vastunam",
+      videoUrl: "https://www.youtube.com/watch?v=yCkl2Z3PBs0",
     }
   ]);
   const [isLoading, setIsLoading] = useState(true);

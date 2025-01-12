@@ -22,6 +22,15 @@ const MovieReview = () => {
 
   const movieLinks = useMemo(
     () => ({
+      1202235: {  
+        //DAKU MAHARAJU 
+        moviereview:
+          "Movie is good, Nandamuri Balakrishna acting and dialogues are good.",  
+        rating: 7.5,
+        trailerLink: "https://www.youtube.com/watch?v=V0ARlFc_ndE",
+        reviewLink: "https://www.youtube.com/watch?v=dwIgVC-_ONg",
+        streamingOn: "",
+      },
       811944: {
         //GAMECHANGER
         moviereview:
