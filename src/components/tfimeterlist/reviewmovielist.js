@@ -13,6 +13,7 @@ const ReviewsmovieList = () => {
   
       // Hardcoded movie IDs and ratings
       const movieData = [
+        { id: 1380920, rating: 7.6 }, //Sankranthi Ki vastunam
         { id: 1202235, rating: 7.5 }, //DAKU MAHARAJU
         {id:811944, rating:7.4}, //GAME CHANGER
         {id:1399790, rating:6.1}, //Bachalla malli

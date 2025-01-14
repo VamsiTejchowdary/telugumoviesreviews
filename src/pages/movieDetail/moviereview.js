@@ -22,6 +22,15 @@ const MovieReview = () => {
 
   const movieLinks = useMemo(
     () => ({
+      1380920: {
+        //Sankranthi Ki vastunam
+        moviereview:
+          "Full Comdey movie. Bulli raju highlight. Good movie to watch with family.",
+        rating: 7.6,
+        trailerLink: "https://www.youtube.com/watch?v=yCkl2Z3PBs0",
+        reviewLink: "https://www.youtube.com/watch?v=g_5pwYjlIIM",
+        streamingOn: "",
+      },
       1202235: {  
         //DAKU MAHARAJU 
         moviereview:
